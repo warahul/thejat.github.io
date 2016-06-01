@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Hadoop in Python - Theja Tulabandhula</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="/hadoop-in-python.html">
+
+        <meta name="author" content="Theja" />
+        <meta name="keywords" content="info" />
+        <meta name="description" content="Notes on Python and Hadoop" />
+
+        <meta property="og:site_name" content="Theja Tulabandhula" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Hadoop in Python"/>
+        <meta property="og:url" content="/hadoop-in-python.html"/>
+        <meta property="og:description" content="Notes on Python and Hadoop"/>
+        <meta property="article:published_time" content="2014-02-15" />
+            <meta property="article:section" content="one-off" />
+            <meta property="article:tag" content="info" />
+            <meta property="article:author" content="Theja" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Theja Tulabandhula            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About me
+                          </a></li>
+                         <li><a href="/pages/research.html">
+                             Research
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/one-off.html">One-off</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/hadoop-in-python.html"
+                       rel="bookmark"
+                       title="Permalink to Hadoop in Python">
+                        Hadoop in Python
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-02-15T12:00:00+05:30"> Sat 15 February 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/info.html">info</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <ul>
+<li>
+<p><a href="http://hadoop.apache.org/">Hadoop</a> is written in java: provides a distributed file system (HDFS) and a framework+api for building and running Mapreduce jobs</p>
+</li>
+<li>
+<p>HDFS is a fle system which is distributed across several machines. Not a relacement to a regular file system.</p>
+</li>
+<li>
+<p>HFDS has built in mechanisms to optimize throughput and handle machine outages.</p>
+</li>
+<li>
+<p>Datanode: where HDFS stores the data</p>
+</li>
+<li>
+<p>Namenode: Master machine</p>
+</li>
+<li>
+<p>Secondary Namenode: keeps a copy of edit logs, filesystem image (to be depricated?)</p>
+</li>
+<li>
+<p>Data is accessed using Java API or commandline</p>
+</li>
+<li>
+<p>Commands</p>
+</li>
+</ul>
+<div class="highlight"><pre> hadoop fs -ls / #root dir
+ hadoop fs -ls ./ #home dir
+ hadoop fs -text ./file.txt.gz #cat a file
+ hadoop fs -put ./localfile.txt /home/user/remotefile.txt #upload a file
+ hadoop fs -get /home/user/remotefile.txt ./localfile.txt #retrieve a file
+</pre></div>
+
+
+<ul>
+<li>
+<p>for non-realtime since it is not optimized for latency.</p>
+</li>
+<li>
+<p>MapReduce layer in Hadoop: Hadoop has APIs for Map (transformation) and Reduce (aggregation) operations</p>
+</li>
+<li>
+<p>Output to <code>reduce</code>: <code>KEY,VALUE</code> pair. Input to <code>reduce</code>: <code>KEY,ITERABLE[VALUE]</code>. <code>reduce</code> is called once per key output by map. <code>ITERABLE[VALUE]</code> is the set of values output by the map phase.</p>
+</li>
+<li>
+<p>3 stages between map and reduce: partitioning, sorting, grouping. Provide scaling.</p>
+</li>
+<li>
+<p>No dependency between mappers and reducers.</p>
+</li>
+<li>
+<p>Two services for scheduling MapReduce jobs: Job Tracker (JT) and Task Tracker(TT). Have auto-retries to guard against failure, TT can use data locality, JT can blacklist TTs,   JT can speculatively execute </p>
+</li>
+<li>
+<p>Non python frameworks: Hive (SQL query against hadoop), Pig, RHadoop, Scoobi, </p>
+</li>
+<li>
+<p>Python frameworks to work with hadoop: Hadoop Streaming, mrjob (if using Amazon EMR), dumbo, hadoopy, pydoop, luigi.</p>
+</li>
+<li>
+<p>If we used Java, we would have a main method, a mapper class and a reducer class.</p>
+</li>
+<li>
+<p>main: set # reducers, set mapper and reducer classes, set partitioner, other setings</p>
+</li>
+<li>
+<p>mapper: take <code>KEY,VALUE</code> and output <code>KEY,VALUE</code></p>
+</li>
+<li>
+<p>reducer: take <code>KEY,ITERABLE[VALUE]</code> and output <code>KEY,VALUE</code></p>
+</li>
+<li>
+<p>Hadoop Streaming is a Java library that implements these. Allows piping. Assume <code>KEY</code> and <code>VALUE</code> are separated by <code>\t</code>. Is present in hadoop's lib directory.</p>
+</li>
+<li>
+<p>Example 1: Start Cloudera Quickstart VM. Then, do the following:</p>
+</li>
+</ul>
+<div class="highlight"><pre>cd ~/workspace
+git clone https://github.com/eljefe6a/nfldata.git
+cd nfldata
+dos2unix -l -n stadiums.csv unixstadiums.csv
+#make a directory called stadiums
+hadoop fs -mkdir nfldata/stadiums
+#upload data from local directory to HDFS
+hadoop fs -put ~/workspace/nfldata/unixstadiums.csv  nfldata/stadiums/
+#run the mapreduce job. Our mapper will be &#39;cat&#39; and reducer will be &#39;wc -l&#39;
+hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.4.0.jar \
+    -Dmapred.reduce.tasks=1 \
+    -input nfldata/stadiums \
+    -output nfldata/stadiumlinecount \
+    -mapper cat \
+    -reducer &quot;wc -l&quot;
+</pre></div>
+
+
+<ul>
+<li>Example 1 (contd): Got the following output:</li>
+</ul>
+<div class="highlight"><pre>packageJobJar: [/tmp/hadoop-cloudera/hadoop-unjar2061865797248043168/] [] /tmp/streamjob8032534107706300556.jar tmpDir=null
+14/02/16 10:29:49 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+14/02/16 10:29:51 INFO mapred.FileInputFormat: Total input paths to process : 1
+14/02/16 10:30:27 INFO streaming.StreamJob: getLocalDirs(): [/tmp/hadoop-cloudera/mapred/local]
+14/02/16 10:30:27 INFO streaming.StreamJob: Running job: job_201402151505_0001
+14/02/16 10:30:27 INFO streaming.StreamJob: To kill this job, run:
+14/02/16 10:30:27 INFO streaming.StreamJob: UNDEF/bin/hadoop job  -Dmapred.job.tracker=localhost.localdomain:8021 -kill job_201402151505_0001
+14/02/16 10:30:27 INFO streaming.StreamJob: Tracking URL: http://0.0.0.0:50030/jobdetails.jsp?jobid=job_201402151505_0001
+14/02/16 10:30:28 INFO streaming.StreamJob:  map 0%  reduce 0%
+14/02/16 10:37:39 INFO streaming.StreamJob:  map 100%  reduce 0%
+14/02/16 10:39:34 INFO streaming.StreamJob:  map 100%  reduce 100%
+14/02/16 10:39:45 INFO streaming.StreamJob: Job complete: job_201402151505_0001
+14/02/16 10:39:45 INFO streaming.StreamJob: Output: nfldata/stadiumlinecount
+</pre></div>
+
+
+<ul>
+<li>Example 1 (contd): We can track the job using the url listed in the output above</li>
+</ul>
+<div class="highlight"><pre>#ls on HDFS to see our folder &#39;stadiumlinecount&#39; got created
+hadoop fs -ls nfldata/stadiumlinecount
+#read the text file(s) output 
+hadoop fs -text nfldata/stadiumlinecount/part*
+</pre></div>
+
+
+<ul>
+<li>
+<p>Example 1 (contd): There should be single part-00000 text file whose content is a single number <code>32</code></p>
+</li>
+<li>
+<p>Up to this point, haven't brought in python. In the next example, we will. For that we will write the following <code>mapper.py</code> and <code>reducer.py</code> (available at rathboma's <a href="https://github.com/rathboma/hadoop-framework-examples">repo</a>)</p>
+</li>
+<li>
+<p>Example 2: count the artificial turn stadiums and the number of natural turf stadiums. Create the <code>mapper.py</code> and <code>reducer.py</code> in <code>~/workspace</code></p>
+</li>
+<li>
+<p>Example 2 (contd): <code>mapper.py</code> (from <a href="https://github.com/rathboma/hadoop-framework-examples">repo</a>:</p>
+</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#! /usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">unpacked</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">stadium</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">expanded_capacity</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">playing_surface</span><span class="p">,</span> <span class="n">indicator_artificial_turf</span><span class="p">,</span> <span class="n">team</span><span class="p">,</span> <span class="n">opened</span><span class="p">,</span> <span class="n">weather</span><span class="p">,</span> <span class="n">roof_type</span><span class="p">,</span> <span class="n">elevation</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">indicator_artificial_turf</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">]</span> <span class="c1">#fixed VALUE of string &quot;1&quot;, KEY is either TRUE or FALSE</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results</span><span class="p">))</span> <span class="c1">#dump line by line to stdout, this is different from KEY,ITERABLE[VALUES] format of java</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Example 2 (contd): reducer.py (from <a href="https://github.com/rathboma/hadoop-framework-examples">repo</a>:</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#! /usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># If it were java, we would get KEY,ITERABLE[VALUES]. </span>
+<span class="c1"># But here, we get key,value line by line. </span>
+<span class="c1"># We ensure (key,value) come grouped together</span>
+<span class="c1"># We keep track of key change from line to line and </span>
+<span class="c1"># reset our counter which counts the number of turfs of certain type</span>
+
+<span class="n">last_turf</span> <span class="o">=</span> <span class="bp">None</span> <span class="c1">#to know if the key is different from that on last line</span>
+<span class="n">turf_count</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1">#counter to count keys of certain type</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">turf</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#notice in mapper, we output tab separated KEY, VALUE pair</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>       <span class="c1">#count was a string, more precisely, string &quot;1&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">last_turf</span><span class="p">:</span>        <span class="c1"># if this is the first iteration</span>
+        <span class="n">last_turf</span> <span class="o">=</span> <span class="n">turf</span>
+    <span class="k">if</span> <span class="n">turf</span> <span class="o">==</span> <span class="n">last_turf</span><span class="p">:</span>    <span class="c1"># if they&#39;re the same, log it</span>
+        <span class="n">turf_count</span> <span class="o">+=</span> <span class="n">count</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#print current key,value (count) to stdout and move on to the next batch of &#39;grouped&#39; key,values. </span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="n">last_turf</span><span class="p">,</span> <span class="n">turf_count</span><span class="p">]))</span>
+        <span class="n">last_turf</span> <span class="o">=</span> <span class="n">turf</span>     <span class="c1">#the new key</span>
+        <span class="n">turf_count</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1">#1st occurrence of it</span>
+
+<span class="c1">#for the last group of keys whose transition is not caught above</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="n">last_turf</span><span class="p">,</span> <span class="n">turf_count</span><span class="p">]))</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>Example 2 (contd): We can do a non-hadoop test to see if the routines work can be done as follows. In the directory where mapper.py and reducer.py are, execute the following:</li>
+</ul>
+<div class="highlight"><pre>chmod +x mapper.py
+chmod +x reducer.py
+cat ~/workspace/nfldata/unixstadiums.csv | ./mapper.py | sort | ./reducer.py
+#FALSE 15
+#TRUE 17
+</pre></div>
+
+
+<ul>
+<li>Example 2 (contd): We can run this through hadoop to get the same result:</li>
+</ul>
+<div class="highlight"><pre>hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.4.0.jar \
+    -mapper mapper.py \
+    -reducer reducer.py \
+    -input nfldata/stadiums \
+    -output nfldata/turfcount \
+    -file ./mapper.py \
+    -file ./reducer.py
+hadoop fs -text nfldata/turfcount/part-00000
+#FALSE 15
+#TRUE 17
+</pre></div>
+
+
+<ul>
+<li>Example 2 (contd): See <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/">Michael Knoll's tutorial</a> for some additional tinkering:</li>
+</ul>
+<p>~~~
+echo "foo foo quux labs foo bar quux" | ./mapper.py
+echo "foo foo quux labs foo bar quux" | ./mapper.py | sort -k1,1 | ./reducer.py
+ ~~~</p>
+<ul>
+<li>Example 3: We can wordcount with a slightly modified mapper and the same reducer code with a different dataset (plain text books from gutenberg.org). Assuming we are in the workspace directory we can do the following. </li>
+<li>Example 3 (contd): The <code>mapperText.py</code> saved in ~/workspace directory. Do <code>chmod +x mapperText.py</code> to make it executable.</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span> <span class="c1"># input from stdin</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>     <span class="c1"># remove leading and trailing whitespace</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>     <span class="c1"># split the line into words</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>     <span class="c1">#key= word, value = &quot;1&quot;, need to be tab-delimited</span>
+        <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#output to stdout</span>
+</pre></div>
+</td></tr></table>
+
+<div class="highlight"><pre>mkdir texts
+cd texts
+wget http://www.gutenberg.org/cache/epub/20417/pg20417.txt
+wget http://www.gutenberg.org/cache/epub/5000/pg5000.txt
+wget http://www.gutenberg.org/cache/epub/4300/pg4300.txt
+cd ..
+hadoop fs -mkdir gutenbergdata
+hadoop fs -put ./texts gutenbergdata/texts
+#arbitrarily forced the number of reducers to 42, the meaning of life
+hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.4.0.jar \
+    -D mapred.reduce.tasks=42 \
+    -mapper mapperText.py \
+    -reducer reducer.py \
+    -input gutenbergdata/texts \
+    -output gutenberg/wordcount \
+    -file ./mapperText.py \
+    -file ./reducer.py
+</pre></div>
+
+
+<ul>
+<li>Example 3 (contd): This generates the following text in stdout:</li>
+</ul>
+<div class="highlight"><pre>packageJobJar: [mapperText.py, reducer.py, /tmp/hadoop-cloudera/hadoop-unjar3423891382102502789/] [] /tmp/streamjob7629049223837132513.jar tmpDir=null
+14/02/16 12:52:22 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+14/02/16 12:52:22 INFO mapred.FileInputFormat: Total input paths to process : 3
+14/02/16 12:52:23 INFO streaming.StreamJob: getLocalDirs(): [/tmp/hadoop-cloudera/mapred/local]
+14/02/16 12:52:23 INFO streaming.StreamJob: Running job: job_201402151505_0010
+14/02/16 12:52:23 INFO streaming.StreamJob: To kill this job, run:
+14/02/16 12:52:23 INFO streaming.StreamJob: UNDEF/bin/hadoop job  -Dmapred.job.tracker=localhost.localdomain:8021 -kill job_201402151505_0010
+14/02/16 12:52:23 INFO streaming.StreamJob: Tracking URL: http://0.0.0.0:50030/jobdetails.jsp?jobid=job_201402151505_0010
+14/02/16 12:52:24 INFO streaming.StreamJob:  map 0%  reduce 0%
+14/02/16 12:52:58 INFO streaming.StreamJob:  map 12%  reduce 0%
+14/02/16 12:53:01 INFO streaming.StreamJob:  map 51%  reduce 0%
+14/02/16 12:53:04 INFO streaming.StreamJob:  map 67%  reduce 0%
+14/02/16 12:53:23 INFO streaming.StreamJob:  map 100%  reduce 0%
+14/02/16 12:53:39 INFO streaming.StreamJob:  map 100%  reduce 2%
+14/02/16 12:53:40 INFO streaming.StreamJob:  map 100%  reduce 5%
+14/02/16 12:53:54 INFO streaming.StreamJob:  map 100%  reduce 10%
+14/02/16 12:54:08 INFO streaming.StreamJob:  map 100%  reduce 12%
+14/02/16 12:54:17 INFO streaming.StreamJob:  map 100%  reduce 14%
+14/02/16 12:54:24 INFO streaming.StreamJob:  map 100%  reduce 17%
+14/02/16 12:54:31 INFO streaming.StreamJob:  map 100%  reduce 19%
+14/02/16 12:54:37 INFO streaming.StreamJob:  map 100%  reduce 21%
+14/02/16 12:54:45 INFO streaming.StreamJob:  map 100%  reduce 24%
+14/02/16 12:54:53 INFO streaming.StreamJob:  map 100%  reduce 26%
+14/02/16 12:54:59 INFO streaming.StreamJob:  map 100%  reduce 29%
+14/02/16 12:55:05 INFO streaming.StreamJob:  map 100%  reduce 31%
+14/02/16 12:55:13 INFO streaming.StreamJob:  map 100%  reduce 33%
+14/02/16 12:55:19 INFO streaming.StreamJob:  map 100%  reduce 36%
+14/02/16 12:55:28 INFO streaming.StreamJob:  map 100%  reduce 38%
+14/02/16 12:55:34 INFO streaming.StreamJob:  map 100%  reduce 40%
+14/02/16 12:55:40 INFO streaming.StreamJob:  map 100%  reduce 43%
+14/02/16 12:55:47 INFO streaming.StreamJob:  map 100%  reduce 45%
+14/02/16 12:55:54 INFO streaming.StreamJob:  map 100%  reduce 48%
+14/02/16 12:56:01 INFO streaming.StreamJob:  map 100%  reduce 50%
+14/02/16 12:56:08 INFO streaming.StreamJob:  map 100%  reduce 52%
+14/02/16 12:56:15 INFO streaming.StreamJob:  map 100%  reduce 55%
+14/02/16 12:56:22 INFO streaming.StreamJob:  map 100%  reduce 57%
+14/02/16 12:56:28 INFO streaming.StreamJob:  map 100%  reduce 60%
+14/02/16 12:56:35 INFO streaming.StreamJob:  map 100%  reduce 62%
+14/02/16 12:56:44 INFO streaming.StreamJob:  map 100%  reduce 64%
+14/02/16 12:56:50 INFO streaming.StreamJob:  map 100%  reduce 67%
+14/02/16 12:57:00 INFO streaming.StreamJob:  map 100%  reduce 69%
+14/02/16 12:57:04 INFO streaming.StreamJob:  map 100%  reduce 71%
+14/02/16 12:57:13 INFO streaming.StreamJob:  map 100%  reduce 74%
+14/02/16 12:57:16 INFO streaming.StreamJob:  map 100%  reduce 76%
+14/02/16 12:57:27 INFO streaming.StreamJob:  map 100%  reduce 79%
+14/02/16 12:57:30 INFO streaming.StreamJob:  map 100%  reduce 81%
+14/02/16 12:57:41 INFO streaming.StreamJob:  map 100%  reduce 83%
+14/02/16 12:57:44 INFO streaming.StreamJob:  map 100%  reduce 86%
+14/02/16 12:57:55 INFO streaming.StreamJob:  map 100%  reduce 88%
+14/02/16 12:57:58 INFO streaming.StreamJob:  map 100%  reduce 90%
+14/02/16 12:58:08 INFO streaming.StreamJob:  map 100%  reduce 93%
+14/02/16 12:58:12 INFO streaming.StreamJob:  map 100%  reduce 95%
+14/02/16 12:58:22 INFO streaming.StreamJob:  map 100%  reduce 98%
+14/02/16 12:58:25 INFO streaming.StreamJob:  map 100%  reduce 100%
+14/02/16 12:58:29 INFO streaming.StreamJob: Job complete: job_201402151505_0010
+14/02/16 12:58:29 INFO streaming.StreamJob: Output: gutenbergdata/wordcount
+</pre></div>
+
+
+<ul>
+<li>Example 3 (contd): Thats pretty much it. Can use the following commands to finish up using Hadoop and HDFS and do local data wrangling.</li>
+</ul>
+<div class="highlight"><pre>hadoop fs -ls gutenbergdata/wordcount
+#-rw-r--r--   3 cloudera cloudera          0 2014-02-16 12:58 gutenbergdata/wordcount/_SUCCESS
+#drwxr-xr-x   - cloudera cloudera          0 2014-02-16 12:52 gutenbergdata/wordcount/_logs
+#-rw-r--r--   3 cloudera cloudera      21148 2014-02-16 12:53 gutenbergdata/wordcount/part-00000
+#-rw-r--r--   3 cloudera cloudera      21106 2014-02-16 12:53 gutenbergdata/wordcount/part-00001
+#.
+#.
+#.
+#-rw-r--r--   3 cloudera cloudera      20933 2014-02-16 12:58 gutenbergdata/wordcount/part-00040
+#-rw-r--r--   3 cloudera cloudera      20468 2014-02-16 12:58 gutenbergdata/wordcount/part-00041
+
+mkdir wordcount #making a directory to fetch MapReduce output data from HDFS to local file system
+hadoop fs -get gutenbergdata/wordcount/part-* ~/workspace/wordcount
+</pre></div>
+
+
+<ul>
+<li>Thats all. These were notes from following the tutorials in the following sources.</li>
+</ul>
+<p>Sources:</p>
+<ul>
+<li><a href="http://blog.cloudera.com/blog/2013/01/a-guide-to-python-frameworks-for-hadoop/">cloudera</a></li>
+<li><a href="http://blog.matthewrathbone.com/2013/04/17/what-is-hadoop.html">blog1</a></li>
+<li><a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/">blog2</a></li>
+<li><a href="http://hadoop.apache.org/docs/stable1/streaming.html">hadoop-streaming</a></li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://stackexchange.com/users/2792935/theja?tab=accounts" target="_blank">
+                Stackexchange
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.linkedin.com/in/thejat" target="_blank">
+                Linkedin
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/thejat" target="_blank">
+                Github
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Theja
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

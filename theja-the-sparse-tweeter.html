@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Theja the sparse tweeter - Theja Tulabandhula</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="/theja-the-sparse-tweeter.html">
+
+        <meta name="author" content="Theja" />
+        <meta name="keywords" content="web" />
+        <meta name="description" content="Theja&#39;s tweeting history using tweepy" />
+
+        <meta property="og:site_name" content="Theja Tulabandhula" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Theja the sparse tweeter"/>
+        <meta property="og:url" content="/theja-the-sparse-tweeter.html"/>
+        <meta property="og:description" content="Theja&#39;s tweeting history using tweepy"/>
+        <meta property="article:published_time" content="2014-11-16" />
+            <meta property="article:section" content="one-off" />
+            <meta property="article:tag" content="web" />
+            <meta property="article:author" content="Theja" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Theja Tulabandhula            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About me
+                          </a></li>
+                         <li><a href="/pages/research.html">
+                             Research
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/one-off.html">One-off</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/theja-the-sparse-tweeter.html"
+                       rel="bookmark"
+                       title="Permalink to Theja the sparse tweeter">
+                        Theja the sparse tweeter
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-11-16T12:00:00+05:30"> Sun 16 November 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/web.html">web</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Since extracting my answers from stackexchange (only crossvalidated though), I thought I should do it for twitter as well. I used the tweepy package to get my tweets.  The python code is available as a notebook <a href="http://nbviewer.ipython.org/github/thejat/thejat.github.io/blob/master/static/scripts/TwitterDump.ipynb">here</a>.  This list was generated on Sun Nov 16 23:14:06 2014. Hope you find this a good random walk.</p>
+<hr />
+<h3>November 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-11-14 16:05:05</em> &gt; {% raw %}"In Japanese, you wouldn't say, "I go to the store." It would be more like "I to the store go." In other words, everyone talks like Yoda."</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-11-07 16:10:45</em> &gt; {% raw %}Naruto ended this week! Thank you to the creators and everyone for the hard work.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-11-04 09:34:04</em> &gt; {% raw %}log(1+2+3)=log1+log2+log3</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-11-02 16:58:38</em> &gt; {% raw %}"Simple solutions are key to maintainability!" one of the most important keys to success.</p>
+</li>
+</ul>
+<hr />
+<h3>October 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-10-28 06:20:48</em> &gt; {% raw %}'Just as Ramsey theory elucidates the impossibility of total disorder, discrepancy theory studies the deviations from total uniformity'-wiki</p>
+</li>
+<li>
+<p><em>Date 2014-10-26 08:53:07</em> &gt; {% raw %}RT @magicalmaths: Now this is definitely one for the mathematicians #funnymathjokes</p>
+</li>
+</ul>
+<p _="%" endraw_="endraw%">http://t.co/6yzS3fgDjL http://t.co/7ubrbSirJ2</p>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-10-14 03:39:20</em> &gt; {% raw %}Just reread Girish Karnad's play Tughlaq in English (1970). The story is good!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-10-14 03:36:25</em> &gt; {% raw %}RT @krvarshney: .@vgcerf says that half the battle in problem solving is to express the problem in such a way that the solution may suggest…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-10-05 08:55:48</em> &gt; {% raw %}RT @davidjayharris: Based on the title, this could be the most useful book of all time. http://t.co/FbH8ATosSx</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-10-02 12:19:18</em> &gt; {% raw %}Congrats to the hockey team for the Asian Games Gold!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-10-02 09:56:03</em> &gt; {% raw %}The future is here, it is just not evenly distributed -- William Gibson.</p>
+</li>
+</ul>
+<hr />
+<h3>September 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-24 17:46:47</em> &gt; {% raw %}RT @SamBehnam: What a hotfix patch feels like ;) http://t.co/YXpR2mDIsF</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-24 17:43:56</em> &gt; {% raw %}RT @MarsCuriosity: Namaste, @MarsOrbiter! Congratulations to @ISRO and India's first interplanetary mission upon achieving Mars orbit.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-24 17:40:56</em> &gt; {% raw %}RT @monaeltahawy: Love this pic so much:when was last time u saw women scientists celebrate space mission? #India #MarsMission @soutik http…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-24 17:38:20</em> &gt; {% raw %}"Always ensure that the improbable outcome is still acceptable." -RD</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-17 14:37:48</em> &gt; {% raw %}Heard a great talk on the use of machine learning for Call of Duty/#Activision !</p>
+</li>
+<li>
+<p><em>Date 2014-09-12 20:14:39</em> &gt; {% raw %}RT @benhamner: 9 tools I find crucial for analytics:</p>
+</li>
+</ul>
+<p _="%" endraw_="endraw%">1 iPython notebook
+2 ggplot2
+3 git
+4 scikit-learn
+5 dataframe
+6 make
+7 SQL
+8 random f…</p>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-12 19:04:34</em> &gt; {% raw %}DO referral for anyone interested in trying out the hosting part of the web dev experience: https://t.co/LPLgGzLOkt</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-12 01:51:10</em> &gt; {% raw %}RT @MIT_alumni: Grace Teo PhD '14 and @williampli SM '12 continue Assistive Technologies legacy @MIT http://t.co/UfD6eNuBbp</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-12 01:46:57</em> &gt; {% raw %}RT @ThePoke: Best job ever. http://t.co/QHPWP7rpPa</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-10 19:47:53</em> &gt; {% raw %}RT @RaymondTayBL: Answer by @jeanqasaur to What are the best languages for getting into functional programming? ← Good read ! http://t.co/7…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-05 13:33:34</em> &gt; {% raw %}Sort directories by size in MB: du -m -d 1 | sort -nr</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-03 17:43:37</em> &gt; {% raw %}RT @bitfield: Ah, the Sysadmin's Dilemma: if everything works, people wonder what you do, but if anything breaks, it's your fault. http://t…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-09-03 17:42:45</em> &gt; {% raw %}RT @mxlearn: Videos of ICML 2014 talks http://t.co/YeZlIi7fhH</p>
+</li>
+</ul>
+<hr />
+<h3>August 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-31 13:05:48</em> &gt; {% raw %}RT @RegexTip: Negative look-ahead is denoted (?! ... ). Example:  \d+(?!.) matches a sequence of digits NOT followed by a decimal point.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-31 13:01:29</em> &gt; {% raw %}RT @pickover: Magnificent cross-section of an undersea cable. $400/foot. (photo: Ann Lingard) http://t.co/QYgfekuTCp</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-31 13:00:55</em> &gt; {% raw %}RT @HistoryInPics: Twitter in 1935 http://t.co/F7fEzoo7La</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-22 00:49:50</em> &gt; {% raw %}RT @StatsInTheWild: The Difference Between “Significant” and “Not Significant” is not
+Itself Statistically Significant http://t.co/t6OOyH7p…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-16 12:27:21</em> &gt; {% raw %}RT @MIT_CSAIL: "Programs must be written for people to read, and only incidentally for machines to execute." – @MIT Prof Hal Abelson. @MITE…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-11 20:25:03</em> &gt; {% raw %}RT @williampli: whether you do something with low or high impact, you'll spend the same amount of time+effort on it --&gt; better do things wi…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-11 20:23:19</em> &gt; {% raw %}"Plans are useless. Planning is invaluable." (by T Henshell)</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-11 02:46:41</em> &gt; {% raw %}RT @Know: Where humans live http://t.co/IOAWoNLw99</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-11 02:37:28</em> &gt; {% raw %}RT @AnimaILife: Not caterpillar http://t.co/KdoYxCNs0K</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-08-07 21:45:37</em> &gt; {% raw %}RT @jeanqasaur: In honor of Rishabh successfully defending his PhD thesis, we're making this blog public again. http://t.co/ahtKASQpKQ</p>
+</li>
+</ul>
+<hr />
+<h3>July 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-30 23:44:49</em> &gt; {% raw %}The vast majority of goals you are pursuing, every day of your life, operate entirely without your awareness.  - Heidi Grant Halvorson</p>
+</li>
+<li>
+<p><em>Date 2014-07-27 21:50:46</em> &gt; {% raw %}RT @adamisacson: "It's not 'software,' Daddy. It's called an 'app.'"</p>
+</li>
+</ul>
+<p _="%" endraw_="endraw%">"Well actually, 'app' is short for 'software application,' which— whe…</p>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-26 13:10:32</em> &gt; {% raw %}very cool video about design: http://t.co/POfCtLLnlv</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-25 02:09:07</em> &gt; {% raw %}RT @williampli: "Machine Learning That Matters" (ICML 2012) should be required reading for ML researchers http://t.co/sYB4YKCVXU //cc @pape…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-21 01:08:06</em> &gt; {% raw %}RT @treycausey: When people stop being polite and start getting real (in GitHub issues). https://t.co/3Wcsi47EbL</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-21 00:46:19</em> &gt; {% raw %}“it does not follow, that a quality which attaches to an effect is transferable to the cause.” - DHFischer</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-19 01:32:17</em> &gt; {% raw %}just had to post :) : "a little bit of slope makes up for a lot of y-intercept" - J Ousterhout</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-14 23:52:53</em> &gt; {% raw %}RT @RegexTip: Reminder: * means zero or more, + means one or more, ? means zero or one.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-14 23:52:08</em> &gt; {% raw %}RT @krvarshney: A winner-take-all economy may strike top management as fair but generates widespread disillusionment. (HT @paul_nj) http://…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-14 23:49:50</em> &gt; {% raw %}online appointment scheduling system asks to call a person to schedule at the first go… well, shouldn't have invested time in registering :)</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-06 00:41:53</em> &gt; {% raw %}RT @WSJ: Next stop, "Mud Depression?" Literal translations of Beijing's subway stations http://t.co/gDeG1pYMEw http://t.co/ISez98Gl7P</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-05 23:16:03</em> &gt; {% raw %}The best minds of my generation are thinking about how to make people click ads. That sucks. – Jeff Hammerbacher, founder of Cloudera</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-05 13:52:20</em> &gt; {% raw %}RT @planetepics: A firefighter giving water to a young Koala Bear during bush fires in Australia. http://t.co/TDQEfI3kIv</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-05 13:51:39</em> &gt; {% raw %}RT @RLangTip: To speed up your R code, use Rprof() to turn on profiling, and summaryRprof() to find the slow parts: http://t.co/76lSTaMKLr …</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-07-05 02:34:46</em> &gt; {% raw %}For a magician to create magic for someone else, he must destroy it for himself. This is the artist’s paradox. (from KX's blog)</p>
+</li>
+</ul>
+<hr />
+<h3>June 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-29 11:02:01</em> &gt; {% raw %}http://t.co/rJiUAlFMyH</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-25 00:56:16</em> &gt; {% raw %}RT @orzelc: Busy day at Schroedinger Industries... RT @EmrgencyKittens: How to organize your cats. http://t.co/z3QS0fnSdL</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-25 00:54:53</em> &gt; {% raw %}RT @casheeew: Hello, would you like to hear a TCP joke? http://t.co/UoTJtGDX2D</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-25 00:53:25</em> &gt; {% raw %}RT @karpathy: Yahoo Labs releases 100 million image a dataset. Total 50TB! Nice. http://t.co/pp3eHS1vqA</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-23 03:47:16</em> &gt; {% raw %}RT @pmarca: "The best minds of my generation are thinking about how to make people buy support contracts for free software." --Anonymous</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-22 13:31:23</em> &gt; {% raw %}RT @spolsky: Oh, Birmingham. I can't even http://t.co/yiFXQBm0Ws</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-22 12:46:19</em> &gt; {% raw %}RT @stanfordnlp: Stanford NLP software v3.4 is out: new, faster shift-reduce constituency parser, improved Arabic segmenter. http://t.co/EJ…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-20 00:55:29</em> &gt; {% raw %}"… result is that for deep neural nets, the smoothness assumption that underlies many kernel methods does not hold." http://t.co/leFFVrtq4O</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-16 01:52:23</em> &gt; {% raw %}New Hampshire was spectacular and beautiful!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-12 01:05:39</em> &gt; {% raw %}RT @dr4goonis: PHP Streetfighter :) #php http://t.co/5dQ5H1UrB2</p>
+</li>
+<li>
+<p><em>Date 2014-06-07 15:53:24</em> &gt; {% raw %}RT @Amazing_Maps: Naming conventions in Europe, Asia and North Africa</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%">http://t.co/uR2qy0IuVF</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-06-06 00:50:40</em> &gt; {% raw %}RT @PicardTips: Picard management tip: If it feels like time is moving at the wrong speed, cancel a few meetings.</p>
+</li>
+</ul>
+<hr />
+<h3>May 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-30 19:54:03</em> &gt; {% raw %}RT @tavianator: StackOverflow has really made it difficult to google information about actual stack overflows :(</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-30 19:53:20</em> &gt; {% raw %}… one should have a system instead of a goal. The system was to continually look for better options. - Scott Adams (of the Dilbert fame)</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-30 01:17:23</em> &gt; {% raw %}DSL: A domain specific language, where code is written in one language and errors are given in another ( http://t.co/TPshb90VkT )</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-29 03:45:35</em> &gt; {% raw %}RT @DGleebits: Someone said, just because you graphed some tweets, doesn't make you a data scientist... http://t.co/XfsXmMTkMT</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-28 20:08:28</em> &gt; {% raw %}RT @krvarshney: It's time to make room for one more member of an NBA player’s staff: the personal statistician. (HT @SloanSportsConf) http:…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-28 20:06:13</em> &gt; {% raw %}Py troubles: anaconda is great but why does it have to conflict with virtualenv?</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-22 11:55:19</em> &gt; {% raw %}RT @t3kcit: Yann LeCun at AMA on Academia: The actual work is largely done by graduate students [senior researcher raise money] http://t.co…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-21 19:46:46</em> &gt; {% raw %}zeppelinnn on competitive sports: "the closer the skill levels are of the players to each other, the more luck may play a factor"</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-21 18:12:55</em> &gt; {% raw %}RT @arima_io: 3D model of the "save" icon. http://t.co/U8aw4cNKlp</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-21 14:41:06</em> &gt; {% raw %}something to think about: randomly installed a firewall today and detected a suspicious ssh login attempt into my machine!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-20 22:10:24</em> &gt; {% raw %}Data analysis mistake to be careful about: removing outliers from training AND test and then validating your model.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-20 22:08:45</em> &gt; {% raw %}infected with spigot while trying to download mactex.pkg FML</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-18 22:36:15</em> &gt; {% raw %}Approximation can double up as an implicit regularization of the solution...</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-17 12:59:24</em> &gt; {% raw %}RT @Recode: LinkedIn Is Creepy (Comic) http://t.co/nbjVIXoDHn http://t.co/o9pfXGp8GJ</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-10 13:02:24</em> &gt; {% raw %}The key to making programs fast is to make them do practically nothing. [from http://t.co/jd9taijIjF]</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-08 15:52:50</em> &gt; {% raw %}RT @StartupYou: The goal of data scientists is to put themselves out of business. hmmm, doesn't sound like a good business model http://t.c…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-08 15:49:21</em> &gt; {% raw %}RT @FiveThirtyEight: And here's how the share of the population age 65 and older will change by 2050. http://t.co/bwHyIwPsSC http://t.co/xH…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-08 15:47:39</em> &gt; {% raw %}RT @naval: Friend graphs (FB, LI) are declining in strategic value as mobile contact list takes over. Stranger graphs (IG, TWTR) maintain f…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-05 22:03:34</em> &gt; {% raw %}gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=output.pdf file1.pdf file2.pdf file3.pdf [...] lastfile.pdf</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-01 21:27:34</em> &gt; {% raw %}@2abstract4me Thanks a lot! At the time, I just used Matlab since its documentation was better</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-01 19:51:48</em> &gt; {% raw %}@2abstract4me yes, you are correct. Sometimes the definition varies a little bit and I don't want to reverse engineer :)</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-01 18:51:04</em> &gt; {% raw %}Am I missing something or is there no explanation for the definition of the error function? https://t.co/cRZUlYbksx</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-05-01 15:17:47</em> &gt; {% raw %}"It does not matter whether a model is right or wrong. What matters is whether it is useful or not."</p>
+</li>
+</ul>
+<hr />
+<h3>April 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-30 02:51:35</em> &gt; {% raw %}RT @peteskomoroch: Tufts Research Day on Data Science http://t.co/oAqo3IofqZ</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-30 02:46:55</em> &gt; {% raw %}Worth reading: https://t.co/w6v2cPYv1Y</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-28 13:41:50</em> &gt; {% raw %}ELI5: The amount of money you make is directly related to the problems you solve for the rich.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-26 18:46:00</em> &gt; {% raw %}TIL deleting remote branches: git push remote_name :branch_name [or] git push remote_name --delete branch_name</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-25 01:39:18</em> &gt; {% raw %}Attending SIAM SDM 2014 right now. Got to listen to a bunch of very interesting talks!!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-17 11:44:00</em> &gt; {% raw %}FYI: a deep learning intro meetup on monday in Boston: http://t.co/QgzAKS418i</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-16 14:32:26</em> &gt; {% raw %}"can you imagine interviewing a chef and asking him what portion of the day he actually devotes to cooking?" lol src: http://t.co/mdx0vwRGSN</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-11 21:09:11</em> &gt; {% raw %}RT @YhatHQ: <code>geom_baseball</code> https://t.co/KmHWldxqp3 http://t.co/JBwutorr2N</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-11 21:04:48</em> &gt; {% raw %}heartbleed http://t.co/8rOZT0ztdA</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-09 02:40:43</em> &gt; {% raw %}Understanding neural nets one layer at a time http://t.co/QyRXi6lZVF</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:50:32</em> &gt; {% raw %}RT @Visually: RT @GrammarGirl: For writers, coders, and pretty much everybody else too: The Life of a Project http://t.co/8RSZfF4nve</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:46:35</em> &gt; {% raw %}RT @ahzf: "Writing is nature's way of letting you know how sloppy your thinking is." Guindon /via: Leslie Lamport @Build2014</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:45:13</em> &gt; {% raw %}RT @nprscottsimon: Heard a successful man say, "Hard work just digs a hole for yourself if you're doing the wrong thing."</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:43:55</em> &gt; {% raw %}RT @pelotom: The demand that all code be readable by a beginner is the demand that all proofs be elementary. It limits our ability to use p…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:42:25</em> &gt; {% raw %}RT @benhamner: Galazy Zoo image classification Kaggle challenge won w/ 42MM parameter convnet, plus dropout/maxout/data augmentation http:/…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:41:01</em> &gt; {% raw %}RT @ForeignPolicy: Migration paths around the world, charted: http://t.co/uZJcShGeVN via @slate http://t.co/Ej5yzD1X5k</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:40:42</em> &gt; {% raw %}RT @ID_AA_Carmack: You don't use STL where you need max performance, but performance isn't the top priority for most code, even in games.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:40:02</em> &gt; {% raw %}RT @Grady_Booch: The relentless accretion of code over months, years, and even decades quickly turns every successful project into a legacy…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-08 00:38:49</em> &gt; {% raw %}RT @kiranshaw: SL shd thank Yuvraj for their win</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-07 22:00:07</em> &gt; {% raw %}It is difficult to get them to understand something, when their salary depends upon them not understanding it. - Upton Sinclair</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-03 19:27:34</em> &gt; {% raw %}lines of code: Count them not as "lines produced" but as "lines spent": the convention books it on the wrong side of the ledger - Dijkstra</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-03 02:58:18</em> &gt; {% raw %}Rating graphs @ http://t.co/NBiNCmGsCx interesting!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-04-03 01:22:26</em> &gt; {% raw %}RT @chrisalbon: Average length of PhD dissertations by major http://t.co/yRr7bSqnLP</p>
+</li>
+</ul>
+<hr />
+<h3>March 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-27 21:59:27</em> &gt; {% raw %}RT @jeresig: Amazing! CCV has just released a state-of-the-art, open source, deep learning image classifier: http://t.co/kuGoFnucz2</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-26 03:11:42</em> &gt; {% raw %}RT @hroncok: git push --force http://t.co/ynuMPDJVyH</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-26 03:06:37</em> &gt; {% raw %}RT @scedastic_d: I've been looking for this! “Resources for IPython presentations http://t.co/QyMHMkYIqi”</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-26 02:59:27</em> &gt; {% raw %}RT @ricarose: "[One voice says what a] failure I am. [Another says] I can change the world - and I try to pay more attention to it" http://…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-26 02:57:29</em> &gt; {% raw %}attributing success to luck isn't really interesting to people. You don't see a lot of books by lottery winners about how to succeed -birken</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-24 18:23:39</em> &gt; {% raw %}Timeline of GNU/Linux distros: http://t.co/GryFXZi24Q</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-19 21:02:44</em> &gt; {% raw %}The master has failed more times than the beginner has even tried. - Stephen McCranie</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-19 16:27:45</em> &gt; {% raw %}RT @RLangTip: Sort a vector into decreasing order: sort(x,decreasing=TRUE) #rstats http://t.co/hcziWL5EPg</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-18 03:06:14</em> &gt; {% raw %}RT @t3kcit: Vincent https://t.co/gEmb609FfM "Have data. Want to make a chart." vega + python.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-12 22:07:29</em> &gt; {% raw %}RT @lrvarshney: One of the byproducts of the Internet has been the shift from scarcity to abundance for the consumer: http://t.co/bGcldKqgRC</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-11 18:51:26</em> &gt; {% raw %}"absence of evidence is not evidence of absence" - Carl Sagan</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-11 13:42:10</em> &gt; {% raw %}RT @fortnow: Candy Crush is NP-complete http://t.co/sqZHbQarXo So stop playing it and get back to work!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-06 22:06:22</em> &gt; {% raw %}RT @TomRaftery: Getty Images makes 35 million images free in fight against copyright infringement
+ http://t.co/Xw1bIr6Xmy &lt; Wow!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-03-06 22:01:15</em> &gt; {% raw %}RT @roboticwrestler: http://t.co/5g9bpjQ6EC Great demo! A timeline of edits a particular student makes to their code, nicely visualized. #s…</p>
+</li>
+</ul>
+<hr />
+<h3>February 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-25 20:11:59</em> &gt; {% raw %}RT @NASA: First moments of a solar flare in different wavelengths of light- @NASA_SDO captured it: http://t.co/F3uRjvYmPH http://t.co/Lo2Ha…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-20 03:09:55</em> &gt; {% raw %}ASE:.. to build a ship, don't drum up people .. and don't assign them work, but .. teach them to long for the endless immensity of the sea.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-17 01:33:36</em> &gt; {% raw %}tip: when running code which depends on (internal) randomness, seed it for repeatability in dev</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-17 01:30:48</em> &gt; {% raw %}TIL     python -m SimpleHTTPServer 8080 to locally deploy a webserver.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-17 01:29:42</em> &gt; {% raw %}http://t.co/lKoHV82kFZ</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-04 02:55:15</em> &gt; {% raw %}RT @scw: Love this citation on releasing source code: "it allows replication of the results, which is a key concept in science (Aristotle, …</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-02-01 19:58:28</em> &gt; {% raw %}TIL command: sudo tlmgr install package-name</p>
+</li>
+</ul>
+<hr />
+<h3>January 2014:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-01-28 22:26:46</em> &gt; {% raw %}It is interesting how the web is really making an impact in my life: Can access quality res-papers, code, lectures so quickly! Epiphany?</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-01-02 14:56:42</em> &gt; {% raw %}@sudeepmadhavan You too!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2014-01-01 13:40:53</em> &gt; {% raw %}Happy new year 2014!</p>
+</li>
+</ul>
+<hr />
+<h3>December 2013:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-12-23 22:11:50</em> &gt; {% raw %}RT @jakevdp: Thanks to a small PR by @ellisonbg, #mpld3 now automatically displays interactive plots in the #IPython notebook: https://t.co…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-12-10 18:11:41</em> &gt; {% raw %}Very interesting applied math lecture: http://t.co/KpMhaSsr08</p>
+</li>
+</ul>
+<hr />
+<h3>November 2013:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-11-26 22:22:14</em> &gt; {% raw %}check out #postdoc opportunities at TUM: https://t.co/t1Mi65SHCT</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-11-24 16:20:52</em> &gt; {% raw %}``Money ... once digitized, becomes subject to persistent programmatic hacking ..." - Cracking Wall Street, Kevin Kelly, Wired, July, 1994.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-11-20 16:13:49</em> &gt; {% raw %}RT @benhamner: You know you've been coding when you type "git" instead of "get" in emails</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-11-20 16:10:13</em> &gt; {% raw %}RT @benhamner: Rejection sampling as a research strategy: "he samples near the distribution of good ideas &amp; relies on PhD students to rejec…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-11-20 16:07:16</em> &gt; {% raw %}RT @benhamner: Academic research papers are commit deltas to the body of human knowledge. Sadly, the body's missing a concise git repo to r…</p>
+</li>
+</ul>
+<hr />
+<h3>October 2013:</h3>
+<ul>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-31 17:27:45</em> &gt; {% raw %}RT @YhatHQ: Bayesian Analysis of MLB Payrolls | http://t.co/guVHNMYR0B</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-31 17:26:33</em> &gt; {% raw %}RT @RLangTip: find() tells what package a function came from.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-31 17:24:02</em> &gt; {% raw %}RT @analysis_factor: This video on conditional probability by @stat110 is fantastic! http://t.co/PZ2gtDAXYP</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-31 17:22:35</em> &gt; {% raw %}What is the impact of crowdsourcing on a company's product development work flow?</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-24 12:55:23</em> &gt; {% raw %}RT @AndrewYNg: Coursera now has over 100 partners!  http://t.co/QpbhJwiVXs</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-24 12:26:49</em> &gt; {% raw %}RT @roydanroy: PubMed Commons http://t.co/G8jjxDNuju ... almost but not quite what we need. Should be decentralized.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-24 12:23:51</em> &gt; {% raw %}RT @newscientist: India set to launch its debut #Mars mission http://t.co/8kPCylvLos</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-22 17:01:41</em> &gt; {% raw %}RT @simplystats: Blog posts that impact real science - software review and GTEX http://t.co/p6nCkpJtCq</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-22 17:01:02</em> &gt; {% raw %}RT @RLangTip: Convert a numeric vector to a factor with "cut", e.g. cut(rnorm(100),3,c("Low","Med","High")) #rstats http://t.co/2GTMP1kkyb</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-22 16:53:40</em> &gt; {% raw %}Print is a function in Python 3 but a statement in earlier versions</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-17 19:53:47</em> &gt; {% raw %}RT @paulg: The Economics of a Hit TV Show: http://t.co/MM37EYnI9O</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-17 18:35:06</em> &gt; {% raw %}RT @YhatHQ: NumPy / SciPy / Pandas Cheat Sheet | https://t.co/QQPjIMuPsM @quandl</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:51:42</em> &gt; {% raw %}RT @YhatHQ: Great visuals! - "Use of Basemap for Amazon river discharge visualization" | @koldunovn @tableau  http://t.co/qLl7RnbrgD (IPyth…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:50:57</em> &gt; {% raw %}RT @sherrirose: More statistics faculty positions: Michigan http://t.co/UiT4sk19bQ, NCSU http://t.co/b4FFKTxukR, Stanford http://t.co/DeFPF…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:48:35</em> &gt; {% raw %}RT @zaxtax: ggplot in python http://t.co/EdYRGfBQ49 , does not call out to R underneath!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:48:04</em> &gt; {% raw %}RT @TechCrunch: Yandex Buys KinoPoisk, 'Russia's IMDb', To Move Into Film Search And Recommendation http://t.co/GQOXCwX4TE by @ingridlunden</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:42:12</em> &gt; {% raw %}RT @Codecademy: We love seeing what you have built with Codecademy! Keep posting your projects or see what other learners have built: http:…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:38:00</em> &gt; {% raw %}RT @Ananyo: ITER, the multibillion-euro international nuclear-fusion experiment, on track to generate power by 2028 http://t.co/bBsHhnHnfh</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:28:55</em> &gt; {% raw %}RT @TeXtip: LaTeX2HTML5: Author interactive math equations and diagrams online using LaTeX and PSTricks http://t.co/vASOCSbHxH via @hmason</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:26:54</em> &gt; {% raw %}RT @RLangTip: Cheat sheet on working with factors in R (by @Mark_Graph): http://t.co/Sf8VcuGgG0 #rstats</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-15 15:26:27</em> &gt; {% raw %}RT @BloombergNews: Bitcoin "mining" rush leads to real-world hardware boom | http://t.co/nLhP6yFoOu</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-10 15:16:53</em> &gt; {% raw %}Need to analyze Markov chains. Looking for a good reference.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-10 15:15:44</em> &gt; {% raw %}RT @SUSolarCar: Stanford Solar Car Project places 4th in the 2013 Bridgestone World Solar Challenge!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 21:05:30</em> &gt; {% raw %}deep learning tutorials bookmarked: http://t.co/ybNzgWf4BF</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 21:02:53</em> &gt; {% raw %}RT @MassChallenge: Don't miss @MassChallenge #MCAwards13 on Oct. 30: http://t.co/HuHefRauEX - witness the cream of the startup crop</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 20:14:16</em> &gt; {% raw %}Machine learning with operational costs available at http://t.co/8TQHQT3FjZ</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 20:00:31</em> &gt; {% raw %}RT @EconBizFin: The shutdown and airlines: Problems with planes http://t.co/F56oeCdljw</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 20:00:26</em> &gt; {% raw %}RT @WIRED: The tech world doesn’t want people working from home. Or so it seems. http://t.co/0RjOXXigmm</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:59:05</em> &gt; {% raw %}RT @AP: BREAKING: Obama names Janet Yellen as his nominee to head Federal Reserve; Yellen says "more needs to be done to strengthen the eco…</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:45:29</em> &gt; {% raw %}I think the NEOS optimization server UI is falling behind.</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:44:41</em> &gt; {% raw %}Jekyll and Github Pages is awesome!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:43:39</em> &gt; {% raw %}'Stochastic processes' take on why casinos win: playerwealth is bounded [or] limited time is allowed [and] payoff process is a martingale</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:40:30</em> &gt; {% raw %}R Shiny attempts to bridge the gap between statistical analysis and deployment!</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:38:14</em> &gt; {% raw %}Event related to system dynamics approach to data explosion happening: http://t.co/5nWxM2K9yM</p>
+</li>
+<li>
+<p _="%" endraw_="endraw%"><em>Date 2013-10-09 19:36:20</em> &gt; {% raw %}How is linear programming the same as linear classification?</p>
+</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://stackexchange.com/users/2792935/theja?tab=accounts" target="_blank">
+                Stackexchange
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.linkedin.com/in/thejat" target="_blank">
+                Linkedin
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/thejat" target="_blank">
+                Github
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Theja
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

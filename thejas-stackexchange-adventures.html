@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Thejas Stackexchange Adventures - Theja Tulabandhula</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="/thejas-stackexchange-adventures.html">
+
+        <meta name="author" content="Theja" />
+        <meta name="keywords" content="ml" />
+        <meta name="description" content="Theja&#39;s Stats.Stackexchange Footprint/Mirror" />
+
+        <meta property="og:site_name" content="Theja Tulabandhula" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Thejas Stackexchange Adventures"/>
+        <meta property="og:url" content="/thejas-stackexchange-adventures.html"/>
+        <meta property="og:description" content="Theja&#39;s Stats.Stackexchange Footprint/Mirror"/>
+        <meta property="article:published_time" content="2014-11-09" />
+            <meta property="article:section" content="one-off" />
+            <meta property="article:tag" content="ml" />
+            <meta property="article:author" content="Theja" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Theja Tulabandhula            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About me
+                          </a></li>
+                         <li><a href="/pages/research.html">
+                             Research
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/one-off.html">One-off</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/thejas-stackexchange-adventures.html"
+                       rel="bookmark"
+                       title="Permalink to Thejas Stackexchange Adventures">
+                        Thejas Stackexchange Adventures
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-11-09T12:00:00+05:30"> Sun 09 November 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/ml.html">ml</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Hi folks! I took the opportunity to select out my answers to some stackexchange questions and reproduce them here.  The questions are by various users on Stackexchange and the answers are mine.  I have linked the original content in the question titles. The post is long because some of the questions are long :) .  I used Py-StackExchnage to generate this using a hackish python notebook. It is available <a href="http://nbviewer.ipython.org/github/thejat/thejat.github.io/blob/master/static/scripts/StackexchangeDump.ipynb">here</a>.  This list was generated on Sun Nov  9 22:45:25 2014. Hope you find this a good read.</p>
+<hr />
+<h3>Question 1: <a href="http://stats.stackexchange.com/questions/108429">Caculate Type II error for Binomial distribution</a></h3>
+<p>{% raw %}
+<p>Basically this is a question if I got the general idea behind the Type II Error right. I’ll set up a little reproducible example:</p></p>
+<p>Given $p_0=0.6$ with an $\alpha$-level of $\alpha=0.1$. As Binomial tests are conservative with respect to $\alpha$ we first calculate (using <code>R</code>) the actual $\alpha$ used:</p>
+
+<h2>Calculating the actual $\alpha$-level:</h2>
+
+<p>$P(X&lt; c_1)= 0.0123$</p>
+
+<pre><code>for(i in 1:10){ # lower bound
+    if(sum(dbinom(0:10, 10, 0.6)[1:(i+1)])&lt;0.05){
+        c &lt;- sum(dbinom(0:10, 10, 0.6)[1:(i+1)])
+    }
+    else break
+    print(c)
+}
+</code></pre>
+
+<p>$P(X&gt;c_2)=0.0464$</p>
+
+<pre><code>for(i in 10:1){ # upper bound
+    if(sum(dbinom(0:10, 10, 0.6)[11:i])&lt;0.05){
+        d &lt;- sum(dbinom(0:10, 10, 0.6)[11:i])
+    }
+    else break
+    print(d)
+}
+</code></pre>
+
+<p>Hence we have an actual $\alpha$ of</p>
+
+<p>$\alpha=P(X&lt;c_1)+P(X&gt;c_2)=0.0123+0.464=0.587$. </p>
+
+<h2>Calculating the critical values $c_1$ and $c_2$:</h2>
+
+<p>The critical values $c_1$ and $c_2$ are:</p>
+
+<p>$c_1=3$</p>
+
+<pre><code>qbinom(0.0123, 10, 0.5)
+</code></pre>
+
+<p>$c_1=8$</p>
+
+<pre><code>qbinom(1-0.0464, 10, 0.5)
+</code></pre>
+
+<h2>Calculating Type II Error for $p_1=0.5$ and $p_2=0.7$:</h2>
+
+<p>$\beta_{0.5}=0.817$</p>
+
+<pre><code>pbinom(8, 10, 0.5) - pbinom(3, 10, 0.5)
+</code></pre>
+
+<p>$\beta_{0.7}=0.84$</p>
+
+<pre><code>pbinom(8, 10, 0.7) - pbinom(3, 10, 0.7)
+</code></pre>
+
+<h2>Logic behind this:</h2>
+
+<p>The Type II Error $\beta$ with respect to a specific value of a parameter $\vartheta\in H_1$ is defined as $\beta_\vartheta = P(c_1\le X\le c_2|\vartheta\in H_1)$. The critical constants $c_1$ and $c_2$ are calculated under $H_0$ but the probability of $X$ being greater than or equal $c_1$ and less than or equal to $c_2$ is calculated under $H_1$. Is this correct?</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Yes, the solutions are correct. Simply put, the probability of not rejecting the null  <span class="math">\(p_0\)</span> is when <span class="math">\(c_1&amp;lt;X&amp;lt;c_2\)</span>. Now Type II error happens when we don't reject the null and the alternative is true. For alternative <span class="math">\(p_i\)</span>, this is the evaluation of <span class="math">\(P(c_1 &amp;lt; X &amp;lt; c_2 | p=p_i)\)</span>, which is what you have done.</p></p>
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 2: <a href="http://stats.stackexchange.com/questions/103459">How do I know which method of cross validation is best?</a></h3>
+<p>{% raw %}
+<p>I am trying to figure out which cross validation method is best for my situation. </p></p>
+<p>The following data are just an example for working through the issue (in R), but my real <code>X</code> data (<code>xmat</code>) are correlated with each other and correlated to different degrees with the <code>y</code> variable (<code>ymat</code>). I provided R code, but my question is not about R but rather about the methods. <code>Xmat</code> includes X variables V1 to V100 while <code>ymat</code> includes a single y variable. </p>
+
+<pre><code>set.seed(1233)
+xmat           &lt;- matrix(sample(-1:1, 20000, replace = TRUE), ncol = 100)
+colnames(xmat) &lt;- paste("V", 1:100, sep ="")
+rownames(xmat) &lt;- paste("S", 1:200, sep ="")
+  # the real y data are correlated with xmat
+ymat           &lt;- matrix(rnorm(200, 70,20), ncol = 1)
+rownames(ymat) &lt;- paste("S", 1:200, sep="")
+</code></pre>
+
+<p>I would like to build a model for predicting <code>y</code> based on all the variables in <code>xmat</code>. So it will be a linear regression model <code>y ~ V1 + V2 + V3+ ... + V100</code>. From a review, I can see the following three cross validation methods:</p>
+
+<ol>
+<li><p><strong>Split data in about half</strong> and use one for training and another half for testing (cross validation):</p>
+
+<pre><code>prop       &lt;- 0.5 # proportion of subset data
+set.seed(1234)
+  # training data set 
+training.s &lt;- sample (1:nrow(xmat), round(prop*nrow(xmat),0))
+xmat.train &lt;- xmat[training.s,]
+ymat.train &lt;- ymat[training.s,]
+
+  # testing data set 
+testing.s &lt;- setdiff(1:nrow(xmat), training)
+xmat.test &lt;- xmat[testing.s,]
+ymat.test &lt;- ymat[testing.s,]
+</code></pre></li>
+<li><p><strong>K-fold cross validation</strong> - using 10 fold cross validation: </p>
+
+<pre><code>mydata &lt;- data.frame(ymat, xmat)
+fit    &lt;- lm(ymat ~ ., data=mydata)
+library(DAAG)
+cv.lm(df=mydata, fit, m=10) # ten-fold cross validation 
+</code></pre></li>
+<li><p><strong>Masking one value or few values at a time</strong> : In this method we randomly mask a value in dataset (y) by replacing it with NA and predict it. The process is repeated n times.</p>
+
+<pre><code>n = 500 
+predicted.v &lt;- rep(NA, n)
+real.v      &lt;- rep(NA, n)
+
+for (i in 1:n){
+  masked.id &lt;- sample (1:nrow(xmat), 1)
+  ymat1     &lt;- ymat 
+  real.v[i] &lt;- ymat[masked.id,]
+  ymat1[masked.id,] &lt;- NA
+  mydata            &lt;- data.frame(ymat1, xmat)
+  fit               &lt;- lm(ymat1 ~ ., data=mydata)
+  predicted.v[i]    &lt;- fit$fitted.values[masked.id]
+}
+</code></pre></li>
+</ol>
+
+<p>How do I know which is best for any situation? Are there other methods? <code>Bootstrap validation</code> vs <code>CV</code> ? Worked examples would be appreciated. </p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Please refer to the <a href="http://en.wikipedia.org/wiki/Cross-validation_%28statistics%29#k-fold_cross-validation" rel="nofollow">wikipedia page</a> for the method definitions (they do a far better job than I could do here). </p></p>
+<p>After you have had a look at that page, the following may be of help to you. Let me focus on the part of the question where one wants to pick one of these methods for their modeling process. Since this is pretty frequent choice that one makes, and they could benefit from additional knowledge, here is my answer for two situations:</p>
+
+<ol>
+<li><p><strong>Any situation</strong>: Use <code>k-fold cross validation</code> with some suitable number of repeats (say 5 or 10). </p>
+
+<ul>
+<li><p>Splitting the data into 1 half, training on the first half and validating on the other is one step in 2-fold cross validation anyway (the other step being repeating the same exercise with the two halfs interchanged). Hence, rule out 'splitting the data into half' strategy.</p></li>
+<li><p>Many machine learning and data mining papers use <strong>k-fold cross validation</strong> (don't have citation), so use it unless you have to be very careful in this step.</p></li>
+<li><p>Now, leave one out method and other methods like '<strong>leave p out</strong>' and '<strong>random split and repeat</strong>' (essentially <strong>bootstrap</strong> like process described above) are defintely good contenders. </p></li>
+<li><p>If your data size is N, then N-fold cross validation is essentially the same as leave one out. </p></li>
+<li><p>'leave p out' and 'bootstrap' are a bit more different than k fold cross validation, but the difference is essentially in how folds are defined and the number of repetitions 'k' that happen.</p></li>
+<li><p>As the wiki page says, both k-fold and '<strong>leave p out</strong>' are decent estimators of the '<strong>expected performance/fit</strong>' (although the bets are off with regards to the variance of these estimators).</p></li>
+</ul></li>
+<li><p><strong><em>Your situation:</em></strong> You only have a sample size of 200 compared to number of features (100). I think there is a very high chance that there are multiple linear models giving the same performance. <strong><em>I would suggest using k-fold cross validation with > 10 repeats</em></strong>. Pick a k value of 3 or 5.</p>
+
+<ul>
+<li><p>Reason for k value: generic choice. </p></li>
+<li><p>Reason for repeat value: A decently high value for repetition is probably critical here because the output of a single k-fold cross validation computation may be suceptible to fold splitting variability/randomness that we introduce.</p></li>
+</ul></li>
+</ol>
+
+<p>Additional thoughts: </p>
+
+<ul>
+<li><p>Maybe I would also employ '<strong>leave p out</strong>' and '<strong>bootstrap like random split repeat</strong>' methods (in addition to k-fold cross validation) for the same performance/fit measure to check if my k-fold cross validation method's outputs look alright.</p></li>
+<li><p>Although you want to use all the 100 features, as someone suggested, pay attention to <strong>multicollinearity/correlation</strong> and  maybe reduce the number of features.</p></li>
+</ul>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 3: <a href="http://stats.stackexchange.com/questions/104531">cross validation in ridge regression for classification. regularization issue</a></h3>
+<p>{% raw %}
+<p>I perform ridge regression for classification. To find regularization parameter I do K-fold cross-validation with classification accuracy as a measure. 
+This gives me some <span class="math">\(\lambda\)</span>, which I then use in training of a final model on the whole available training data. The problem is that when I take 10*<span class="math">\(\lambda\)</span> my test accuracy on separate dataset is much better than with <span class="math">\(\lambda\)</span>. I cannot see a reason for that. Tell me please, why this might happen?</p></p>
+<p>The lambda I get is 10^4 and beta coefficients are about 10^(-3). I have about 15000 features, which I standardize before doing regression.</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Consider the following steps:</p></p>
+<ol>
+<li><p>Pick $\lambda$ using training set where it was the best in some sense (best average performance on validation folds, which are subsets of the training set).</p></li>
+<li><p>Fix this $\lambda$ and get a new regression model using the training set.</p></li>
+<li><p>Evaluate the model on a held out test set (which we hope was drawn from the same distribution as the training set).</p></li>
+</ol>
+
+<p>Think of what we did in steps 1 and 2. All we did was choose the coefficients of the ridge model (say $\beta$) and the regularization coefficient $\lambda$ using <em>the training set only</em>. In other words, Steps 1 and 2 can be seen as a black box which optimized all the parameters of our full model, a.k.a $(\beta,\lambda)$, using the training data.</p>
+
+<p>In the above point of view, there is no reason why this full model $(\beta,\lambda)$ has to perform better than a new full model $(\beta,10*\lambda)$ we come up with after getting feedback from the held out test set.</p>
+
+<p>Although we expect that the best performing model on the training set translates to great performance on the held out test set, it cannot beat a model which we come up with after looking at/taking into account the held out test set.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 4: <a href="http://stats.stackexchange.com/questions/104348">Outlier detection using regression</a></h3>
+<p>{% raw %}
+<p>Can regression be used for out lier detection. I understand that there are ways to improve a regression model by removing the outliers. But the primary aim here is not to fit a regression model but find out out liers using regression</p></p>
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<blockquote>
+  <p>Can regression be used for outlier detection. </p>
+</blockquote></p>
+<p>Yes. This answer and Glen_b's answer address this.</p>
+
+<blockquote>
+  <p>The primary aim here is not to fit a regression model but <em>find out out liers using regression</em></p>
+</blockquote>
+
+<p>Building on Roman Lustrik's comment, here is a heuristic to find outliers using (multiple linear) regression.</p>
+
+<p>Lets say you have sample size $n$. Then, do the following:</p>
+
+<ol>
+<li><p>Fit a regression model on the $n$ examples. Note down its <a href="http://en.wikipedia.org/wiki/Ordinary_least_squares#Estimation" rel="nofollow">residual
+sum of squares
+error</a>
+$r_{total}$.</p></li>
+<li><p>For each sample i, fit a regression model on the n-1 examples
+(excluding example i) and note down the corresponding residual sum
+of squares error $r_i$.</p></li>
+<li><p>Now, compare $r_i$ with $r_tot$ for each $i$, if $r_i &lt;&lt; r_{total}$,
+then $i$ is a candidate outlier.</p></li>
+</ol>
+
+<p>Setting these candidate outlier points aside, we can repeat the whole exercise again with the reduced sample. In the algorithm, we are picking examples in the data which are influencing the regression fit in a bad way (which is one way to label an example as an outlier).</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 5: <a href="http://stats.stackexchange.com/questions/104069">Question about normalize/scale data before using neuralnet</a></h3>
+<p>{% raw %}
+<p>I have read several threads about the issue on same outputs after people fitting a neural network model with R neuralnet. Posted Solution is to normalize or scale the data before fitting model. Since I am a newbie in this area, I feel confused in the inconsistence between the normalized training data and normalized testing data. The thing is people fit neuralnet after they normalizing training data. Then they use the fitted model on normalized testing data to forecast. Since the training data and testing data are separate, the normalizing or scale method might be different which might result in in-correctness of forecast. Can anyone help me about this concern?</p></p>
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>You are right in identifying that it is incorrect to use two different normalizations, one for training and one for testing.</p></p>
+<p>Here is the right approach. Normalize the training set, by which I mean:</p>
+
+<ol>
+<li>de-mean and save the feature means</li>
+<li>compute the feature variance or 'max abs value' and divide each feature column with it. Save this value as well.</li>
+<li>Now use the same feature means vector to de-mean the test set.</li>
+<li>Use the same feature variance or 'max abs value' computed with training data to divide the testing feature column.</li>
+</ol>
+
+<p>Note: I assumed certain type of normalization (de-meaning each feature column and diving by the variance of the feature column), but the general idea remains the same.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 6: <a href="http://stats.stackexchange.com/questions/104103">R-commander. Generate random data depending on the means and SDs of different populations</a></h3>
+<p>{% raw %}
+<p>I have 3 different populations, represented by their specific means and SDs. So I have 3 means with their 3 SDs:</p></p>
+<p>Mean1 = 5.5  SD1 = 0.65</p>
+
+<p>Mean2 = 5.9  SD2 = 0.32</p>
+
+<p>Mean3 = 5.4  SD3 = 0.49 </p>
+
+<p>If I want to obtain a sample size (n) of 1000 randomly of each population according to their respective means and SDs, how can I do it in only one step using for example R commander?</p>
+
+<p>So I want 3 columns of 1000 samples each.</p>
+
+<p>Thanks in advance</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Assuming you want Gaussians: here is a dataframe in R:</p></p>
+<pre><code> data.frame(pop1 = rnorm(1000,mean=5.5,sd=0.65), pop2 = rnorm(1000,mean=5.9,sd=0.32), pop3 = rnorm(1000,mean=5.4,sd=0.49))
+</code></pre>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 7: <a href="http://stats.stackexchange.com/questions/73005">How to use liblbfgs for fitting?</a></h3>
+<p>{% raw %}
+<p>I am trying to use <a href="http://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" rel="nofollow">bfgs</a> algorithm in order to fit a set of <span class="math">\(\{(x,y),f(x,y)\}\)</span> to a function in the form of let's say <span class="math">\(a\cdot cos(x)+b \cdot y=f(x,y)\)</span>.</p></p>
+<p>I try to understand how to use bfgs algorithm with <a href="http://www.chokkan.org/software/liblbfgs/group__liblbfgs__api.html" rel="nofollow">liblbfgs</a>, but I don't understand the <a href="http://www.chokkan.org/software/liblbfgs/" rel="nofollow">example</a>  and it is not clear what function the author tried to fit.</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>The example is doing a 100-dimensional (see #define N 100 in the code) optimization. The author is only printing the first two dimensions of x = (x[0],x[1],...,x[N]) as shown below for iteration 1.</p></p>
+<pre><code>Iteration 1:
+fx = 254.065298, x[0] = -1.069065, x[1] = 1.053443
+xnorm = 10.612828, gnorm = 325.365479, step = 0.000607
+</code></pre>
+
+<p>Now f(x) is defined in the function <em>evaluate</em>.</p>
+
+<pre><code>for (i = 0;i &lt; n;i += 2) {
+    lbfgsfloatval_t t1 = 1.0 - x[i];
+    lbfgsfloatval_t t2 = 10.0 * (x[i+1] - x[i] * x[i]);
+    g[i+1] = 20.0 * t2;
+    g[i] = -2.0 * (x[i] * g[i+1] + t1);
+    fx += t1 * t1 + t2 * t2;
+}
+</code></pre>
+
+<p>fx is for the function value at $x$ and $g(x)$ is a $N\times 1$ (or $100\times 1$) dimensional gradient.</p>
+
+<p>\begin{align}
+f(x) = \sum_{i=0,2,4,...,N-2}(1-x_i)^2 + \left(10(x_{i+1} - x_i^2)\right)^2
+\end{align}
+The gradient at odd components ($i=1,3,5,...$) is
+$$200(x_{i+1} - x_i^2) $$
+The gradient component at even coordinates ($i=0,2,4,6,...$) is 
+$$-2(1-x_i) - 400*x_i*(x_{i+1} - x_i^2)$$</p>
+
+<p><em>Note</em>:</p>
+
+<ol>
+<li>indexing starts from 0</li>
+<li>I believe the gradients in the code are incorrect. When I change the appropriate line g[i+1] = 20.0 * t2; to g[i+1] = 200.0 * t2; I am getting a different answer. Potentially I may be making a mistake here. Nonetheless, hopefully I have answered your question.</li>
+</ol>
+
+<p><strong>Our fitting problem</strong>
+In our case, we have a two dimensional problem. Rename our $f(x,y)$ to $z$. Then, we have an $m\times 3$ dimensional matrix of values with each row being a tuple $(x_j,y_j,z_j), j=1,...,m$ which are fixed. We could now minimize the function $h(a,b)$
+\begin{align}
+h(a,b) = \sum_{j=1}^{m}(a\cos(x_j) +b y_j - z_j)^2
+\end{align}
+With
+\begin{align}
+\frac{\partial h(a,b)}{\partial a} = -2\sum_{j=1}^{m}\left((a\cos(x_j) +b y_j - z_j)\sin(x_j)\right)\\
+\frac{\partial h(a,b)}{\partial b} = 2\sum_{j=1}^{m}\left((a\cos(x_j) +b y_j - z_j)y_j\right) 
+\end{align}
+as the gradient functions.
+All that you need to do is encode these in place of the for loop above, change #define N 100 to 2 and initialize some initial value of $a,b$ to be passed into the lbfgs function.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 8: <a href="http://stats.stackexchange.com/questions/72753">Expected maximum given population size, mean, and variance</a></h3>
+<p>{% raw %}
+<p>How would one estimate the maximum given population size, a few moments, and perhaps some additional assumption on the distribution?</p></p>
+<p>Something like "I'm going to do $N_s≫1$ measurements out of population of size $N_p≫N_s$; will record mean $μ_s$, standard deviation $σ_s$, and maximal value in the sample $X_s$; I am willing to assume binomial (or Poisson, etc) distribution; what is the expected maximal value $X_p$ of the entire population?"</p>
+
+<p>Related question: does one need to make the assumptions on the nature of the population distribution, or the sample statistics would be enough to estimate $X_p$?</p>
+
+<p>Edit: the background I just added in the comments may not be clear enough. So here it is:</p>
+
+<p>The end purpose it to print a set of shapes (wires, gates, etc) on a VLSI circuit that matches the designed shapes (a.k.a. targets) as well as possible. The measure of fitness of the manufactured set of shapes is the MAXIMAL difference from the target, rather than the $\sigma$ along the $~10^9$ location. The reason for evaluating the maximum difference is clear: a single short circuit is bad enough to bring down the entire chip, and then it wouldn't matter how close you were to the target in the remaining 99.999999% of the chip's location. </p>
+
+<p>The problem is that it's very costly to measure the printed shape in too many locations: you literally need to look though an electron microscope at the half-manufactured chip (that's going to get trashed after the destructive measurements), adjust for metrology errors, etc. Therefore more than $10^4$ measurements is hardly ever being done. The result of those measurement is the maximal target difference $X_s$ of the SAMPLE, as well as any other sample statistics you may wish for.</p>
+
+<p>And now one needs to estimate the maximal difference $X_p$ for the entire population... And now one wishes that he paid more attention in the statistics class back in college...</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p><em>Try 2</em>:</p></p>
+<p>This is a heuristic and I don't know of any statistical guarantees. The procedure is as follows:</p>
+
+<ul>
+<li>construct the empirical distribution function. If it looks exponential, convert the values to log scale to see a power-law tail.</li>
+<li>Fit a curve on this modified histogram. That is, do a 1-D regression. Hopefully the curve mimics the tail of a well-behaved distribution.</li>
+<li>Pick the point where the line intersects the x-axis in the interval $[\max_{i=1,...,N_s}x_i,\infty)$.</li>
+</ul>
+
+<p>This is another estimator of the max value of the support of the <em>population</em>.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 9: <a href="http://stats.stackexchange.com/questions/72753">Expected maximum given population size, mean, and variance</a></h3>
+<p>{% raw %}
+<p>How would one estimate the maximum given population size, a few moments, and perhaps some additional assumption on the distribution?</p></p>
+<p>Something like "I'm going to do $N_s≫1$ measurements out of population of size $N_p≫N_s$; will record mean $μ_s$, standard deviation $σ_s$, and maximal value in the sample $X_s$; I am willing to assume binomial (or Poisson, etc) distribution; what is the expected maximal value $X_p$ of the entire population?"</p>
+
+<p>Related question: does one need to make the assumptions on the nature of the population distribution, or the sample statistics would be enough to estimate $X_p$?</p>
+
+<p>Edit: the background I just added in the comments may not be clear enough. So here it is:</p>
+
+<p>The end purpose it to print a set of shapes (wires, gates, etc) on a VLSI circuit that matches the designed shapes (a.k.a. targets) as well as possible. The measure of fitness of the manufactured set of shapes is the MAXIMAL difference from the target, rather than the $\sigma$ along the $~10^9$ location. The reason for evaluating the maximum difference is clear: a single short circuit is bad enough to bring down the entire chip, and then it wouldn't matter how close you were to the target in the remaining 99.999999% of the chip's location. </p>
+
+<p>The problem is that it's very costly to measure the printed shape in too many locations: you literally need to look though an electron microscope at the half-manufactured chip (that's going to get trashed after the destructive measurements), adjust for metrology errors, etc. Therefore more than $10^4$ measurements is hardly ever being done. The result of those measurement is the maximal target difference $X_s$ of the SAMPLE, as well as any other sample statistics you may wish for.</p>
+
+<p>And now one needs to estimate the maximal difference $X_p$ for the entire population... And now one wishes that he paid more attention in the statistics class back in college...</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p><em>Try 1</em>:</p></p>
+<p>If $X \sim U[a,b]$ (uniform, either discrete or continuous), then the MLE estimator for b (which is $\max_{x \in [a,b]} X$) is essentially $\max_{i=1,...,N_s}x_i$.</p>
+
+<p>I chose uniform distribution because it is the worst case distribution in terms of entropy. This is in line with the MaxEnt (maximum entropy) principle. I also assumed a linear order in the values of the random variable.</p>
+
+<p>We can make the following claim about the estimator $\max_{i=1,...,N_s}x_i$ to <em>its</em> mean using Hoeffdings inequality (without assuming that $X \sim U[a,b]$). Assuming $x_i$ are i.i.d from some distribution with bounded support $[a,b]$, we have
+\begin{align*}
+\mathbb{P}_{x_1,...,x_{N_s}}\left(|\max_{i=1,...,N_s}x_i - \mathbb{E}[\max_{i=1,...,N_s}x_i]| \geq \epsilon\right) \leq 2\exp\left(\frac{-2\epsilon^2}{N_s(b-a)}\right)
+\end{align*}
+Here we do not need to know $b$ exactly, any rough or crude upper bound will suffice. The above concentration is only saying that the estimator is close to the expected value of the estimator which is not the same as being close to the unknown $\max_{x \in [a,b]}X = b$.</p>
+
+<p><em>Additional comment</em>: I would make the measurements uniformly at random over the plane/chip so that hopefully no region with high $X$ values is missed. This observation is independent of the above.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 10: <a href="http://stats.stackexchange.com/questions/72756">Predictive algorithm validation</a></h3>
+<p>{% raw %}
+<p>In putting a binary 1/0 predictive algorithm into production, what are the consequences where only the positive (1) predictions are checked, meaning only true or false positives are detected, and then fed back into training the model? Will that bias the algorithm in any way so that it progressively gets worse and worse because it never sees true or false negatives?</p></p>
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>I am thinking of the following two points:</p></p>
+<ul>
+<li><p>You are observing the true labels and their associated predictors, a.k.a the pair $y_i,x_i$ only when the algorithm is predicting a label of $1$. The algorithm is updated regardless of whether it made an error or not. This means that there is no feedback on mistakes (like in online learning). We get new data irrespective of our prediction performance.</p></li>
+<li><p>The question we need to ask is then: <em>Does the algorithm's output influence the data source?</em> If the algorithm is not influencing the source, then this aspect where we 'conditionally observe new data' will not bias the algorithm by itself (everything else held constant).</p></li>
+</ul>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 11: <a href="http://stats.stackexchange.com/questions/72759">Questions about thresholding the data</a></h3>
+<p>{% raw %}
+<p>I came across a <a href="http://www.kdnuggets.com/data_mining_course/assignments/final-project.html" rel="nofollow">data mining course project</a> online.</p></p>
+<p>The data is of samples with 7000 features as genes. Each gene is associated with a value. Some of the values are negative. The data looks like in this way:</p>
+
+<pre><code>SNO "U48730_at" "U58516_at" "U73738_at" "X06956_at" "X16699_at" "X83863_at"
+
+X1 " 27" " 161" " 0" " 34" " 2" " 116"
+X2 " 27" " 265" " 0" " 98" " 2" " 123"
+X3 " 24" " 126" " 0" " 21" " 0" " 142"
+X4 " 27" " 163" " -1" " 16" " -1" " 134"
+X5 " 41" " 138" " 1" " 29" " 1" " 153"
+X6 " 55" " 107" " -1" " 17" " 0" " 152"
+X7 " 27" " 99" " 0" " 57" " 1" " 139"
+X8 " 2" " 137" " -1" " 19" " -3" " 213"
+X9 " -5" " 161" " -3" " 23" " 2" " 193"
+X10 " 0" " 110" " -3" " 7" " -1" " 208"
+X11 " -7" " 67" " 1" " 2" " -2" " 149"
+X12 " 4" " 93" " 3" " 37" " 2" " 266"
+X13 " 2" " 75" " 3" " 30" " 6" " 205"
+</code></pre>
+
+<p>The professor advise the students to first do 'data cleaning'. The original sentence is Threshold both train and test data to a minimum value of 20, maximum of 16,000.</p>
+
+<p>I first thought that it is to search over each gene and if there is a value out of the bounds, then just discard this gene as a feature. However, it seems for every gene, there must be a sample with the value out of bound.</p>
+
+<p>What should I do by "threshold this data"? Is that like if the value is below 20, then set it 20 or if the value is above 16000, then just set it as 16000?</p>
+
+<p>In fact, I did the last operation in R by </p>
+
+<pre><code>data[data&lt;20] &lt;- 20
+</code></pre>
+
+<p>and it turns out that the speed of the command is very slow. (79*7070 samples)</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<blockquote>
+  <p>What should I do by "threshold this data"? Is that like if the value is below 20, then set it 20 or if the value is above 16000, then just set it as 16000?</p>
+</blockquote></p>
+<p>Yes.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 12: <a href="http://stats.stackexchange.com/questions/72751">What is the loss function for C - Support Vector Classification?</a></h3>
+<p>{% raw %}
+<p>In article <a href="http://www.csie.ntu.edu.tw/~cjlin/papers/libsvm.pdf" rel="nofollow">LIBSVM: A Library for Support Vector Machines</a> there is written, than C-SVC uses loss function:</p></p>
+<p>$$ \frac{1}{2}w^Tw+C\sum\limits_{i=1}^l\xi_i$$</p>
+
+<p>OK, I know, what is $w^Tw$. </p>
+
+<p>But what is $\xi_i$?  I know, that it is somehow connected with misclassifications, but is it calculated exactly?</p>
+
+<p>P.S. I don't use any non-linear kernels.</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p><span class="math">\(\xi_i\)</span> are the slack variables. They are typically nonzero when the 2-class data is non-separable. We are trying the minimize the slack as much as possible (by minimizing their sum, since they are non-negative) along with maximizing the margin (<span class="math">\(w^Tw\)</span>) term.</p></p>
+<p><em>Exact calculation</em>: Well, if the convex program has been solved to optimality without any optimization error, then yes, they are calculated exactly.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 13: <a href="http://stats.stackexchange.com/questions/72729">How does RVM achieve sparsity?</a></h3>
+<p>{% raw %}
+<p>I have read several textbook descriptions on RVM and none of them provide an adequate (plain English) explanation of how RVM achieves sparsity.</p></p>
+<p>I am left feeling like the authors left out a paragraph of text that would have connected the dots and instead decided to replace (rather than supplement) it with mathematical derivations.</p>
+
+<p>Could someone please explain the basic idea as to how RVM works in relation to learning sparse regression models?</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>In Relevance vector machines (<a href="http://en.wikipedia.org/wiki/Relevance_vector_machine" rel="nofollow">RVM</a>) we have a prior on the weight vector <span class="math">\(\mathbf{w}\)</span> (which is <span class="math">\(N+1\)</span> dimensional, where <span class="math">\(N\)</span> is the number of examples) as shown in equation (5) of (<a href="http://jmlr.org/papers/volume1/tipping01a/tipping01a.pdf" rel="nofollow">1</a>):
+</p>
+<div class="math">$$p(\mathbf{w}|\alpha) = \Pi_{i=0}^{N}\mathcal{N}(w_i|0,\alpha_i^{-1}),$$</div>
+<p>
+where <span class="math">\(\mathbf{\alpha}\)</span> is the <span class="math">\(N+1\)</span> dimensional vector of hyperparameters.</p></p>
+<p>This prior is supposed to ensure that the weight vector $\mathbf{w}$ (which represents the number of "support vectors" which are active) is "sparse" if we can integrate out all the nuisance parameters ($\alpha$). See paragraph preceding Section 2.2 in (<a href="http://jmlr.org/papers/volume1/tipping01a/tipping01a.pdf" rel="nofollow">1</a>).</p>
+
+<p><em>Potential points of confusion:</em></p>
+
+<ul>
+<li>the notation $\mathbf{w}$ is different from the $d$-dimensional linear model representation. Here, while comparing RVM with SVM, only think of the dual SVM formulation with the $N+1$ dimensional parameter $\mathbf{w}$.</li>
+<li>"Sparse" for (dual) SVMs means the number of support vectors is small. Do not confuse with number of non-zero coefficients in (the d-dimensional) linear models.</li>
+</ul>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 14: <a href="http://stats.stackexchange.com/questions/71701">How many users will connect to my Server (simplified)?</a></h3>
+<p>{% raw %}
+<p>This is a simplification of question: <a href="http://stats.stackexchange.com/questions/71448/how-many-users-will-connect-to-my-server">How many users will connect to my Server?</a>, in which I'm trying to make it simpler and more defined.</p></p>
+<p>I have 5 days in a week.
+Each day has 6 temporal slots of 1 hour.</p>
+
+<p>There are 4 working-groups.
+Each group <strong>must</strong> fill exactly 2 slots in a week, each one with a working unit.
+The work of a group doesn't exclude (and doesn't influence in any way) the work of another group in the same slot.</p>
+
+<p>Each week has always 4 * 2 = 8 working units, which are randomly distributed in the available slots. The only constraint is that the working units of the same group can't fill the same slot.</p>
+
+<p>I define a measure, the <em>overlap</em>, which is the maximum number of working unit contained in the same slot. Given the constraint the maximum overlap of a week is 4, i.e. all the groups fill a given slot with their own working unit. </p>
+
+<p>For example, if in the slot of one day there are 3 working units, and there aren't in the whole week more working units for a given slot, the overlap of this week is 3. Also, if there are two days, each one with a slot containing 3 working units, the overlap is 3. Again, if there is one slot with 3 working units and many other slots with 2 working units, the overlap is always 3.</p>
+
+<p>I'd like to calculate:</p>
+
+<ul>
+<li>P(overlap = 0)</li>
+<li>P(overlap = N)</li>
+<li>P(overlap &lt; N)</li>
+</ul>
+
+<p>Thanks,
+   Riccardo</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Let number of total slots be <span class="math">\(n\)</span> (<span class="math">\(= 5*6\)</span> in your case). Let number of groups be <span class="math">\(m\)</span> (4 in your case).</p></p>
+<p>Think of $n$ distinguishable bins where you want to fill $2m$ distinguishable balls. 
+$P(\{\textrm{overlap} \leq N\}) :=$ Probability that there is at most N balls in any bin after filling the $n$ bins with $2m$ balls. Note that  $1\leq N\leq m$.</p>
+
+<p>\begin{align*}
+P(\{\textrm{overlap} \leq N\}) &amp;= \frac{\sum_{\left\{k_i: N \geq k_i\geq 0, \sum_{i=1}^{n} k_i = 2m\right\}}{2m \choose {k_1,k_2,...,k_{n}}}}{\sum_{\left\{k_i: m \geq k_i\geq 0, \sum_{i=1}^{n} k_i = 2m\right\}}{2m \choose {k_1,k_2,...,k_{n}}}}\\
+\end{align*}</p>
+
+<p>Using this, we can compute any other probability. For example, $P(\{\textrm{overlap} \leq m\}) = 1$. When $2m \leq n$, 
+$$P(\{\textrm{overlap} \leq 1\}) = \frac{{n \choose 2m}{(2m)!}}{\sum_{\left\{k_i: m \geq k_i\geq 0, \sum_{i=1}^{n} k_i = 2m\right\}}{2m \choose {k_1,k_2,...,k_{n}}}}$$</p>
+
+<p>Also for non cumulative probabilities, $P(\textrm{overlap} = r) = P(\{\textrm{overlap} \leq r\}) - P(\{\textrm{overlap} \leq r-1\})$ where $r$ is a positive integer between $1$ to $m$.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 15: <a href="http://stats.stackexchange.com/questions/71455">Measuring the smoothness of time series</a></h3>
+<p>{% raw %}
+<p>I work on a method that gives a (noisy) estimation of brain volume over time in Alzheimer's patients.</p></p>
+<p>As we know that the evolution is smooth and even mostly linear if looked at over a time frame of a few years, one way of evaluating the algorithm is to look at the smoothness or linearity of the estimated time series (brain volume over time).</p>
+
+<p>This is why I'm looking for a good metric of smoothness or linearity of time series. What I've been using for now is the average R² from patient-wise linear regressions. This does reflect linearity, but it depends heavily on the sampling (it will give better results with fewer data points). Could anyone suggest a better metric?</p>
+
+<p><strong>Some details since apparently my question wasn't clear</strong>. I have an algorithm that gives a few (from one to five or six) discrete $V(t_n)$ brain volume measurements for many patients. I want to measure to which degree $V$ is close to something linear, eg. $V(t_n) = a t_n + b$ accross all patients (all patients will have different coefficients, but I want an overall measure of linearity).</p>
+
+<p>I should also mention that the $t_n$ values are not regularly spaced.</p>
+
+<p><strong>One more comment</strong>
+Obviously patients with one or two data points are not informative. However I want to take advantage of all the other patients. Even a patient with three data points is informative: three aligned points are much better than three completely jagged points.</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Since you are computing <span class="math">\(r^2\)</span> for each patient <span class="math">\(i\)</span> and you want the following properties:</p></p>
+<blockquote>
+  <p>So patients with more data points will likely have a worse metric, if nothing is done.</p>
+</blockquote>
+
+<ol>
+<li>Series with more measurements should be higher weighted</li>
+</ol>
+
+<blockquote>
+  <p>My concern is that those with 3 and those with 6 should be treated in a way that does not favor one way or another</p>
+</blockquote>
+
+<ol>
+<li>Series with lesser points should also be included judiciously. </li>
+</ol>
+
+<p>A simple heurisic comes to mind to measure linearity across the whole dataset: Let the number of data points for each patient be $n_i$ and the total number of patients be $K$. Since you are already computing $r_i^2$ for each patient $i$, how about getting a weighted average:
+$$\frac{\sum_{i=1}^{K}n_i r_i^2}{\sum_{i=1}^{K}n_i}$$
+This has the property that it will give more importance to series with higher number of observations.
+Instead of $n_i$ as the coefficients in the numerator and denominator above, you can use any other function of $n_i$ to address your concerns I quoted above.</p>
+
+<hr>
+
+<p>Another thought: To counter the issue of ireegularly sampled observations,do the following. Fit $n_i-1$ dimensional polynomials (<a href="http://en.wikipedia.org/wiki/Polynomial_interpolation" rel="nofollow">link1</a>,<a href="http://en.wikipedia.org/wiki/Lagrange_polynomial" rel="nofollow">link2</a>) to each of the time series observations you have (as an extension of the divided differences idea by @Glen_b). Given $n_i$ algorithm outputs $\{V(t_k)\}$ at $n_i$ times $\{t_k\}$, this is just
+$$
+V^{\textrm{poly. approx}}(t)=\sum_{k=1}^{n_i}V(t_k)\cdot\prod_{1\leq j\leq n,j\neq k}\frac{t-t_k}{t_k-t_j}.
+$$
+Then, evaluate each of these polynomials at regular time locations for each patient. And then fit the lines and proceed as above. </p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 16: <a href="http://stats.stackexchange.com/questions/71708">How to find the distance from data point to the hyperplane with MATLAB SVM?</a></h3>
+<p>{% raw %}
+<p>I am using the <a href="http://www.mathworks.fr/fr/help/stats/svmtrain.html" rel="nofollow">SVMStruct</a> function in MATLAB (with RBF kernel) to classify my data, and it works great. But now I need to compare the distance from the data points to the hyperplane, or to find the data point that is closest to the hyperplane. I don't find a function in MATLAB to do that, or even how this can be done. Could someone please suggest?</p></p>
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>You can get the hyperplane only in the case of linear kernel (a.k.a dot-product) case. Here,
+the input for the computation are (based on what I could interpret from the <a href="http://www.mathworks.com/help/stats/svmtrain.html" rel="nofollow">documentation</a> and a helpful <a href="http://www.mathworks.in/matlabcentral/newsreader/view_thread/249191" rel="nofollow">thread</a>)</p></p>
+<ol>
+<li>SVMStruct.Bias (call it $b$)</li>
+<li>SVMStruct.SupportVectors (call it $\{x_j\}$) (<em>Note</em>: <strong>These are data points closest to the hyperplane</strong>)</li>
+<li>SVMStruct.Alpha (call it $\{\alpha_j\}$)</li>
+</ol>
+
+<p>The output is: $w^T = [(\sum_{j}\alpha_jx_j)^T\;\;  b]$. The distance of every training point to the hyperplane specified by this vector $w$ is $w^T[x_i]/||w||_2$.</p>
+
+<p>For RBF kernel, the representation of the classifier or regressor is of the form $\sum_{i=1}^n \alpha_i K(x_i,x)$ where $n$ is the number of training examples and $K$ is the kernel we choose and $\{x_i\}$ are our training data points. The hyperplane lives in a possibly higher (even infinite) dimension. This hyperplane is of course different from the decision boundary (which is non-linear) which you may visualize when you have only 2-dimensional features.</p>
+
+<p>Notation: vectors are in column format.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 17: <a href="http://stats.stackexchange.com/questions/71289">Interpretation of error bars with covariance</a></h3>
+<p>{% raw %}
+<p>I am working on decision making under uncertainty, in which I have four technologies which I should compare them in terms of some decision criteria. These decision criteria are evaluated as probability distribution functions from which I extract two values including modal value and confidence interval values for each technology (min/modal/max).</p></p>
+<p>At the end for each criterion I would have an error bar for each technology that I should interpret them. However I have faced a problem regarding interpretation of these error bars. Since the uncertain parameters are changing from one technology into another, I can not claim that all minimum values on these error bars would happen at the same time, and all maximum values would happen at the same time. There is possibility that minimum value of one technology happens when the maximum value of another is happening. As I understood it means that I have covariance.</p>
+
+<p>I do greatly appreciate if you can let me know if there is any technique for interpreting these error bars when we do have covariance.</p>
+
+<p>Thank you very much in advance for giving your time to help me.</p>
+
+<p>Best regards
+Shabnam</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p><strong>Problem Notation:</strong></p></p>
+<p>Let $R_A$ be the probability density function or even a random variable when technology A is used. In any case, $R_A,R_B,R_C,R_D$ can be thought of transformations of your inputs which are uncertain. Let $(x_A,x_B,x_C,x_D)$ be these uncertain inputs. </p>
+
+<ol>
+<li><p>In one extreme, $x_A = x_B = x_C = x_D$. That is, all the inputs are the same. In this case, you can compare the modal/mean and confidence intervals as one way to judge the performance of these technologies.</p></li>
+<li><p>In the more interesting case, these are not the same but you have some dependence information. One version of dependence can be described by correlation. This means that the quantities $R_A,R_B,R_C,R_D$ are also correlated. (<em>Note:</em> there could be higher order dependences as well.)</p></li>
+</ol>
+
+<p><strong>Evaluation:</strong></p>
+
+<p>Now let us discuss the evaluations when there is dependence (correlation) and contrast it with the independent case.</p>
+
+<p>For this let us just consider two instead of four technologies to see how they can be evaluated. That is, consider only $R_A$ and $R_B$. Let them be correlated with coefficient $\rho$. Let them represent random variables with say, normal distributions (though this is not important). </p>
+
+<ol>
+<li><p>In the independent case, plotting the 25th, 50th (mean) and the 75th quantile (<em>error bars</em>) makes sense as suggested in the question.</p></li>
+<li><p>Do <em>error bars</em> make sense in the dependent case? 
+I contend that placing the error bars of $R_A$ and $R_B$ make sense. That is because, $R_A$ may be correlated with $R_B$ but nonetheless, we know the (marginal) distribution of $R_A$ and it contains all the information to assess this random quantity.</p></li>
+</ol>
+
+<p>If the purpose on the other hand is to see how $R_A$ behaves in relation to $R_B$ we could do the following: fix is to look at the 2D plot of the joint distribution of $R_A,R_B$. They will give you a visual way to see how $R_A$ and $R_B$ are related. For instance, if $\rho$ is positive or negative, you will see tilted ellipsoids whereas when $\rho$ is zero, you will see circles.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 18: <a href="http://stats.stackexchange.com/questions/71288">Interpreting Linear Model Coefficients with Lagged Variables</a></h3>
+<p>{% raw %}
+<p>Let's say I have a data set which looks like below and I'm running a linear model to predict income on two predictors.</p></p>
+<pre><code>date    date-1    income   region    age
+mar       apr      50        2        55
+apr       may      10        3        40
+may       jun      35        1        35  
+....
+
+Income = B0 + B1(Region) + B2(Age)
+</code></pre>
+
+<p>Let's say that I get the following coefficients from the model. How would I interpret such results.</p>
+
+<pre><code>             Est  
+Intercept    130
+Region       0.05
+Age          0.10
+</code></pre>
+
+<p>So with a one month lag, how would I go about interpreting this model. What if it were a two month lag?</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>If [Income at date] = B0 + B1[Region at date-1] + B2[Age at date-1], then the fact that you are using data from a month ago to forecast Income this month is only saying that this future income value is predictable. The same is true if the lag is changed to two months.</p></p>
+<p>If on the other hand, you had [Income at date] = B0 + B1[Region at date-1] + B2[Age at date-1] + B3[Income at date-1] where we have added a third predictor which is the same as the dependent variable but lagged, then we are looking at time series modeling, more specifically autoregressive moving average (ARMA) models.</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 19: <a href="http://stats.stackexchange.com/questions/71301">Calculate the Burning Time for a Lamp</a></h3>
+<p>{% raw %}
+<p>If you have a lamp with burning time 4000 hours. If the time goes forward until the lamp will be destroyed the exponential distribution is 3675 hours, what is the probability of a lamp to be working at least 4000 hours?</p></p>
+<p>I don't know how to calculate in order to achieve the result?</p>
+
+<p>I have read the document about calculation but still I don't know how to do it.</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Let X denote the random time at which the lamp fails. 
+X is a random variable with the exponential distribution.</p></p>
+<p>All this means is that the probability that X fails after $x$ hours is given by:
+$$P(X&gt;x) = e^{-\lambda x}$$ where $\lambda$ is the parameter for the exponential distribution.</p>
+
+<p>In our case, $\lambda = \frac{1}{3675}$ and $x = 4000$. Thus,
+$$P(\{\textrm{of lamp working for at least 4000 hours}\}) = P(X&gt;4000) = e^{-4000/3675} = .3367$$</p>
+
+<p>{% endraw%}</p>
+<hr />
+<h3>Question 20: <a href="http://stats.stackexchange.com/questions/71275">How to calculate the weighted covariance?</a></h3>
+<p>{% raw %}
+<p>I'm trying to calculate the weighted co-variance by hand to better understand what is going on. I have read the <a href="http://en.wikipedia.org/wiki/Sample_covariance_matrix" rel="nofollow">Wikipeida article</a> and I understand the concept. However, when plugging in numerical values I encounter the following problem:</p></p>
+<p>For example assume I have three observations as given in matrix A</p>
+
+<p>$A = \left[ \begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+\end{array} \right]$</p>
+
+<p>each row vector of matrix A has a weight value associated with it as $w_i = (0.5, 0.33, 0.17) $</p>
+
+<p>Using the equation in Wikipedia which is:</p>
+
+<p>$$ q_{jk} = \frac{\sum_{i = 1}^{N} w_i}{(\sum_{i = 1}^{N} w_i)^2 - \sum_{i = 1}^{N} w_{i}^2} \sum_{i = 1}^{N} w_i (x_{ij} - \bar{x}_j)(x_{ik} - \bar{x}_k) $$</p>
+
+<p>if I'm to calculate $q_{21}$ the derivation would look like the following</p>
+
+<p>$$q_{21} = \left[ \frac{1}{1 - (0.25 + 0.1089 + 0.0289 )} \right]\left(w_i(1-0.5)(0 - 0.3) + w_i(0-0.5)(1 - 0.3) + w_i(0-0.5)(0 - 0.3)\right) $$</p>
+
+<p>what should I plug in to $w_i$ ? </p>
+
+<p>Is the other parts of the substitution correctly done?</p>
+
+<p>{% endraw%}</p>
+<h3>My Answer:</h3>
+<p>{% raw %}
+<p>Let A be a matrix with rows being the observations as you have specified. For each row we have a weight. For row i, we have observation vector <span class="math">\(x_i\)</span> and weight <span class="math">\(w_i\)</span></p></p>
+<p>Focus on the general expression for $q_{jk}$. It is a product of two terms.</p>
+
+<p>The term $\frac{\sum w_i}{(\sum w_i)^2 - \sum w_i^2}$ is independent of the subscripts $j,k$ of $q_{j,k}$. </p>
+
+<p><em>Note:</em> You have this computed correctly.</p>
+
+<p>The term $\sum_{i=1}^{N} w_i (x_{ij} - \bar{x}_j)(x_{ik} - \bar{x}_k)$ depends on $(j,k)$. On the other hand, $i$ is a running variable.</p>
+
+<p><em>Note:</em> </p>
+
+<ul>
+<li>You have $(j,k) = (2,1)$. Then the second term becomes $\sum_{i=1}^{N} w_i (x_{i2} - \bar{x}_2)(x_{i1} - \bar{x}_1)$. </li>
+<li>Weighted mean is $\bar{x} = \sum_{i=1}^{N} w_i*x_i $. For $x_1 = [1 0 0], x_2 = [0 1 0]$ and $x_3 = [0 0 1]$ and weights $w_1 = 0.5, w_2 = .33,w_3 = .17$ we have $\bar{x} = [.5\; 0\; 0] + [0 \;.33\; 0] + [0 \;0 \;.17] = [.5\; .33\; .17]$. Thus, $\bar{x}_1 = .5$ and $\bar{x}_2 = .33$.</li>
+<li>Also, $x_{12} = 0, x_{22} = 1, x_{32} = 0$ and $x_{11} = 1, x_{21} = 0, x_{31} = 0$.</li>
+<li>Thus, 
+$$\sum_{i=1}^{N} w_i (x_{i2} - \bar{x}_2)(x_{i1} - \bar{x}_1) \\
+= w_1(x_{12} - \bar{x}_2)(x_{11} - \bar{x}_1) + w_2(x_{22} - \bar{x}_2)(x_{21} - \bar{x}_1) + w_3(x_{32} - \bar{x}_2)(x_{31} - \bar{x}_1) \\
+= .5(0 - .33)(1 - .5) + .33(1-.33)(0-.5) + .17(0-.33)(0-.5)\\
+= -.165
+$$</li>
+</ul>
+
+<p>{% endraw%}</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://stackexchange.com/users/2792935/theja?tab=accounts" target="_blank">
+                Stackexchange
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.linkedin.com/in/thejat" target="_blank">
+                Linkedin
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/thejat" target="_blank">
+                Github
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Theja
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

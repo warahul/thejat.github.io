@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>R for Machine Learning - Theja Tulabandhula</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="/r-for-machine-learning.html">
+
+        <meta name="author" content="Theja" />
+        <meta name="keywords" content="ml" />
+        <meta name="description" content="Recalling R basics" />
+
+        <meta property="og:site_name" content="Theja Tulabandhula" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="R for Machine Learning"/>
+        <meta property="og:url" content="/r-for-machine-learning.html"/>
+        <meta property="og:description" content="Recalling R basics"/>
+        <meta property="article:published_time" content="2014-05-29" />
+            <meta property="article:section" content="one-off" />
+            <meta property="article:tag" content="ml" />
+            <meta property="article:author" content="Theja" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Theja Tulabandhula            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About me
+                          </a></li>
+                         <li><a href="/pages/research.html">
+                             Research
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/one-off.html">One-off</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/r-for-machine-learning.html"
+                       rel="bookmark"
+                       title="Permalink to R for Machine Learning">
+                        R for Machine Learning
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-05-29T12:00:00+05:30"> Thu 29 May 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/ml.html">ml</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>A short recap for myself about some data mining related functionalities in R. This is from Allison Chang's note on 'R for Machine Learning' for MIT 15.097 Spring 2012.</p>
+<h3>Absolute 0</h3>
+<div class="highlight"><pre>#path-to-directory, library-name and function-name are strings to be replaced below.
+getwd() #get working directory
+setwd(&quot;path-to-directory&quot;) #set working directory to your project folder
+library(library-name) #load a particular library, for example e1071 for SVMs
+?function-name #help
+</pre></div>
+
+
+<h3>Datasets</h3>
+<div class="highlight"><pre>data() #R&#39;s own datasets
+data(trees) #load the trees dataset which is a 31*3 &#39;data frame&#39; (== matrix with entries possibly strings/non-numerical) 
+str(trees) #trees is a bit different from a matrix with column names. This command should return &#39;data.frame&#39; and other info
+</pre></div>
+
+
+<h3>Vectors</h3>
+<p>Everything in R is an object and the assignment operator <code>&lt;-</code> is used to store the object into variables.</p>
+<div class="highlight"><pre>v <span class="o">&lt;-</span> <span class="m">99</span> <span class="c1"># variable v is &#39;assigned&#39; value 99. Scalars are vectors of length 1.</span>
+v <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">)</span> <span class="c1">#variable v is now a vector. c is a vector concat operator</span>
+v <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span>v<span class="p">)</span> <span class="c1">#transpose operation. Check how the rownames and columnnames look like</span>
+v <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span>from<span class="o">=</span><span class="m">100</span><span class="p">,</span>to<span class="o">=</span><span class="m">90</span><span class="p">,</span>by<span class="o">=</span><span class="m">-2</span><span class="p">)</span> <span class="c1">#handy function to generate the vector [100 98 96 94 92 90]</span>
+v <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span>from<span class="o">=</span><span class="m">1</span><span class="p">,</span> to<span class="o">=</span><span class="m">1</span><span class="p">,</span> length.out<span class="o">=</span><span class="m">3</span><span class="p">)</span> <span class="c1">#all ones vector</span>
+v <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;theja&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">),</span><span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">))</span> <span class="c1">#elements of the vector can be characters, strings, T/F boolean. rep is for repetition</span>
+v<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="c1">#indexing</span>
+v<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)]</span> <span class="c1">#indexing</span>
+v<span class="p">[</span><span class="o">-</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)]</span> <span class="c1">#negative indexing</span>
+v<span class="p">[</span>v<span class="o">&lt;</span><span class="m">4</span><span class="p">]</span> <span class="c1">#conditional indexing</span>
+<span class="kp">which</span><span class="p">(</span>v<span class="o">&lt;</span><span class="m">4</span><span class="p">)</span> <span class="c1">#indices of elements satisfying the criteria</span>
+<span class="kp">length</span><span class="p">(</span>v<span class="p">)</span> <span class="c1">#length</span>
+</pre></div>
+
+
+<h3>Matrices</h3>
+<div class="highlight"><pre>v1 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+v2 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
+mat1 <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>v1<span class="p">,</span>v2<span class="p">)</span> <span class="c1">#concatenates the two vectors side-by-side, as two columns of a matrix</span>
+<span class="kp">rbind</span><span class="p">(</span>v1<span class="p">,</span>v2<span class="p">)</span> <span class="c1">#concatenates the two vectors on top of each other as two rows of a matrix</span>
+mat2 <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kp">seq</span><span class="p">(</span>from<span class="o">=</span><span class="m">1</span><span class="p">,</span>to<span class="o">=</span><span class="m">6</span><span class="p">,</span>by<span class="o">=</span><span class="m">1</span><span class="p">),</span>nrow<span class="o">=</span><span class="m">3</span><span class="p">,</span>ncol<span class="o">=</span><span class="m">2</span><span class="p">,</span>byrow<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="c1">#same as the first three commands. Except the columns names are not v1, v2 anymore.</span>
+<span class="kp">colnames</span><span class="p">(</span>mat2<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;v1&quot;</span><span class="p">,</span><span class="s">&quot;v2&quot;</span><span class="p">)</span> <span class="c1">#not this is the same as the first three commands in this blurb</span>
+</pre></div>
+
+
+<div class="highlight"><pre>mat2[,&quot;v1&quot;] #pick the first column. This gives a vector.
+mat2[,1] #same as above.
+mat2[2,] #pick the second row.
+nrow(mat2) #number of rows
+ncol(mat2) #number of columns
+</pre></div>
+
+
+<h3>I/O</h3>
+<div class="highlight"><pre><span class="c1">#path-to-file is the absolute or relative path to a csv/tsv like file you want to read </span>
+mydata <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="s">&quot;path-to-file&quot;</span><span class="p">,</span> header<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">)</span> <span class="c1">#sep=&quot;,&quot; means we want to read a csv file. sep=&quot;\t&quot; means a tsv file</span>
+write.table<span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="c1">#try ?write.table</span>
+<span class="kp">cat</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;theja&quot;</span><span class="p">,</span><span class="s">&quot;may know R.&quot;</span><span class="p">))</span> <span class="c1">#printing to output. paste is to concatenate strings with a whitespace between them.</span>
+<span class="kp">as.data.frame</span><span class="p">(</span><span class="kt">matrix</span><span class="o">-</span>name<span class="p">)</span> <span class="c1">#to transform into a data frame</span>
+<span class="kp">as.factor</span><span class="p">(</span><span class="kt">vector</span><span class="o">-</span>name<span class="p">)</span> <span class="c1">#to transform into a factor variable. It is a vector of categorical variables encoded using integers.</span>
+</pre></div>
+
+
+<h3>Sampling</h3>
+<div class="highlight"><pre>rnorm(n=2,mean=0,sd=1) #a standard Gaussian vector of length 2
+rexp(n=2,rate=3) #an exponential random vector of rate 3 (check the definition of rate using ?rexp . Believe me, this will save you some trouble later on.)
+rpois(n=2,lambda=1) #a Poisson random vector (again check the definition of lambda using ?rpois)
+runif(n=2,min=1,max=3) #uniform
+rbinom(n=2,size=10,prob=.5) #flipping an unbiased coin 10 times. This is related 2 times and the number of heads is output.
+sample(c(2,3,4,5,6),size=100,replace=TRUE) #sampling from a vector of numbers 100 times uniformly with replacement
+</pre></div>
+
+
+<h3>Loop and conditioning</h3>
+<div class="highlight"><pre>for (condition){
+    #do something
+    if(another-condition){
+        #do something additional
+    }
+}
+</pre></div>
+
+
+<h3>Plotting</h3>
+<div class="highlight"><pre>plot(mydata[,1],mydata[,2],main=&quot;Scatterplot of x vs y&quot;) #scatterplot
+hist(mydata[,1]) #histogram
+boxplot(v2~v1,as.data.frame(mat2)) #boxplot: v1 and v2 are the two column names of matrix mat2. The first argument is a formula.
+</pre></div>
+
+
+<p>Formula are of the form <code>y ~ x1 + x2 + x3</code> . Check with <code>?formula</code></p>
+<h3>Data models</h3>
+<div class="highlight"><pre><span class="c1">#Linear regression</span>
+lm_model <span class="o">&lt;-</span> lm<span class="p">(</span>y <span class="o">~</span> x1 <span class="o">+</span> x2<span class="p">,</span> data <span class="o">=</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>y<span class="p">,</span>x1<span class="p">,</span>x2<span class="p">)))</span>
+<span class="kp">summary</span><span class="p">(</span>lm_model<span class="p">)</span>
+lm_model<span class="o">$</span>coefficients
+predicted <span class="o">&lt;-</span> predict.lm<span class="p">(</span>lm_model<span class="p">,</span>newdata<span class="o">=</span><span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>x1_test<span class="p">,</span>x2_test<span class="p">)))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#Logistic regression for classification</span>
+glm_mod <span class="o">&lt;-</span> glm<span class="p">(</span>y <span class="o">~</span> x1 <span class="o">+</span> x2<span class="p">,</span> family<span class="o">=</span>binomial<span class="p">(</span>link<span class="o">=</span><span class="s">&quot;logit&quot;</span><span class="p">),</span> data<span class="o">=</span><span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>y<span class="p">,</span>x1<span class="p">,</span>x2<span class="p">)))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#K-NN classification using the class package</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;class&quot;</span><span class="p">)</span>
+knn_model <span class="o">&lt;-</span> knn<span class="p">(</span>train<span class="o">=</span><span class="kp">cbind</span><span class="p">(</span>x1<span class="p">,</span>x2<span class="p">),</span> test<span class="o">=</span><span class="kp">cbind</span><span class="p">(</span>x1_test<span class="p">,</span>x2_test<span class="p">),</span>cl<span class="o">=</span><span class="kp">as.factor</span><span class="p">(</span>y<span class="p">),</span>k<span class="o">=</span>K<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#Naive Bayes classifier from e1071 package</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;e1071&quot;</span><span class="p">)</span>
+NB_model <span class="o">&lt;-</span> naiveBayes<span class="p">(</span>y <span class="o">~</span>x1 <span class="o">+</span> x2<span class="p">,</span> data<span class="o">=</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>y<span class="p">,</span>x1<span class="p">,</span>x2<span class="p">)))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#Decision trees / CART from rpart package for classification</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;rpart&quot;</span><span class="p">)</span>
+cart_model <span class="o">&lt;-</span> rpart<span class="p">(</span>y <span class="o">~</span> x1 <span class="o">+</span> x2<span class="p">,</span> data<span class="o">=</span><span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>y<span class="p">,</span>x1<span class="p">,</span>x2<span class="p">)),</span> method<span class="o">=</span><span class="s">&quot;class&quot;</span><span class="p">)</span> <span class="c1">#use plot.rpart and text.rpart as needed</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#Adaboost in ada package using decision trees from the rpart package</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;ada&quot;</span><span class="p">)</span>
+boost_model <span class="o">&lt;-</span> ada<span class="p">(</span>x<span class="o">=</span><span class="kp">cbind</span><span class="p">(</span>x1<span class="p">,</span>x2<span class="p">),</span>y<span class="o">=</span>y<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#SVMs from e1071 package</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;e1071&quot;</span><span class="p">)</span>
+svm_model <span class="o">&lt;-</span> svm<span class="p">(</span>x <span class="o">=</span> <span class="kp">cbind</span><span class="p">(</span>x1<span class="p">,</span>x2<span class="p">),</span> y<span class="o">=</span><span class="kp">as.factor</span><span class="p">(</span>y<span class="p">),</span> kernel<span class="o">=</span><span class="s">&quot;radial&quot;</span><span class="p">,</span> cost<span class="o">=</span>C<span class="p">)</span>
+<span class="kp">summary</span><span class="p">(</span>svm_model<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#K-means Clustering</span>
+kmeans_model <span class="o">&lt;-</span> kmeans<span class="p">(</span>x<span class="o">=</span><span class="kp">cbind</span><span class="p">(</span>x1<span class="p">,</span>x2<span class="p">),</span> centers <span class="o">=</span> m<span class="p">)</span> <span class="c1">#here m is the number of clusters</span>
+kmeans<span class="p">(</span>x<span class="o">=</span><span class="kt">c</span><span class="p">(</span>rnorm<span class="p">(</span>n<span class="o">=</span><span class="m">10</span><span class="p">,</span>mean<span class="o">=</span><span class="m">0</span><span class="p">,</span>sd<span class="o">=</span><span class="m">1</span><span class="p">),</span>rnorm<span class="p">(</span>n<span class="o">=</span><span class="m">10</span><span class="p">,</span>mean<span class="o">=</span><span class="m">10</span><span class="p">,</span>sd<span class="o">=</span><span class="m">1</span><span class="p">)),</span>centers<span class="o">=</span><span class="m">2</span><span class="p">)</span> <span class="c1">#for example</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="c1">#Apriori from arules package runs on a binary incidence matrix: column names are items and rows are transactions</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;arules&quot;</span><span class="p">)</span>
+generated_rules <span class="o">&lt;-</span> apriori<span class="p">(</span>mydata<span class="p">,</span> parameter<span class="o">=</span><span class="kt">list</span><span class="p">(</span>supp<span class="o">=</span><span class="m">0.8</span><span class="p">,</span> conf<span class="o">=</span><span class="m">0.9</span><span class="p">))</span>
+<span class="kp">summary</span><span class="p">(</span>generated_rules<span class="p">)</span>
+inspect<span class="p">(</span>generated_rules<span class="p">)</span>
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://stackexchange.com/users/2792935/theja?tab=accounts" target="_blank">
+                Stackexchange
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.linkedin.com/in/thejat" target="_blank">
+                Linkedin
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/thejat" target="_blank">
+                Github
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Theja
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
